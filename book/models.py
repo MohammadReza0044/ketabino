@@ -22,31 +22,31 @@ class Translator(models.Model):
 
 class Book (models.Model):
 
-    Available = "Available"
-    Unavailable = "Unavailable"
- 
     STATUS_CHOICES = (
-        (Available,  "Available"),
-        (Unavailable,"Unavailable"),
+        ('A',  "Available"),
+        ('U',"Unavailable"),
         )
 
     name = models.CharField(max_length=255)
+    slug = models.CharField(max_length=255 , unique=True)
     publisher = models.ForeignKey(Publisher , on_delete=models.CASCADE)
     author = models.ForeignKey(Author , on_delete=models.CASCADE)
     translator = models.ForeignKey(Translator , on_delete=models.CASCADE)
-    code = models.IntegerField()
+    code = models.IntegerField(unique=True)
     description = models.TextField()
     pages = models.IntegerField()
-    published_date = models.DateField()
-    status = models.CharField(max_length=50 , choices=STATUS_CHOICES)
+    published_date = models.IntegerField()
+    status = models.CharField(max_length=1 , choices=STATUS_CHOICES)
+    active_date = models.DateField(auto_now=True)
+    image = models.ImageField(upload_to='image')
     price = models.IntegerField()
 
     class Meta:
         db_table = 'Book'
 
-
     def __str__(self):
         return self.name
+  
 
 
 
@@ -61,4 +61,5 @@ class Comment (models.Model):
 
     def __str__(self):
         return self.full_name
+
 

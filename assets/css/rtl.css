@@ -1,0 +1,529 @@
+.navbar-light .navbar-nav .nav-item:first-child a {
+    margin-right: 0;
+    margin-left: 14px;
+}
+.navbar-light .navbar-nav .nav-item:last-child a {
+    margin-left: 0;
+    margin-right: 15px;
+}
+.navbar-light .others-option .option-item .social-icon {
+    padding-right: 0;
+}
+.navbar-nav {
+    padding-right: 0;
+}
+.navbar-light .others-option .option-item .social-icon li {
+    margin-left: 5px;
+    margin-right: 0;
+}
+.navbar-light .others-option .option-item .social-icon li:last-child {
+    margin-left: 0;
+}
+.app-banner-area .banner-image {
+    text-align: left;
+}
+.main-banner-content .banner-holder a {
+    margin-left: 10px;
+    margin-right: 0;
+}
+.main-banner-content .banner-holder a:last-child {
+    margin-left: 0;
+}
+.single-app-features {
+    text-align: right;
+}
+.app-about-image {
+    text-align: left;
+}
+.app-about-content .app-list {
+    padding-right: 0;
+}
+.app-about-content .app-list li i {
+    margin-left: 5px;
+    margin-right: 0;
+}
+.pricing-list-tab .tabs {
+    padding-right: 0;
+}
+.single-pricing-box .pricing-features {
+    padding-right: 0;
+}
+.single-pricing-box .price span {
+    margin-right: -7px;
+    margin-left: 0;
+}
+.newsletter-form-content .newsletter-form button {
+    left: 4px;
+    right: auto;
+}
+.newsletter-form-content .newsletter-form .input-newsletter {
+    padding-right: 25px;
+    padding-left: 0;
+}
+.single-team-box .image .social {
+    padding-right: 0;
+}
+.faq-accordion .accordion .accordion-title {
+    padding: 25px 20px 20px 40px;
+}
+.faq-accordion .accordion .accordion-title i {
+    left: 20px;
+    right: auto;
+}
+.single-testimonial-item .client-info {
+    padding-right: 58px;
+    padding-left: 0;
+    margin-right: 26px;
+    margin-left: 0;
+}
+.single-testimonial-item .client-info img {
+    right: 0;
+    left: auto;
+}
+.single-testimonial-item .testimonial-desc::before {
+    right: 35px;
+    left: auto;
+}
+.faq-accordion .accordion {
+    padding-right: 0;
+}
+.app-download-content .app-holder a {
+    margin-left: 10px;
+    margin-right: 0;
+}
+.app-download-content .app-holder a:last-child {
+    margin-left: 0;
+}
+.single-blog-post .post-content .post-meta {
+    padding-right: 0;
+}
+.single-blog-post .post-content .post-meta li .post-author img {
+    margin-left: 10px;
+    margin-right: 0;
+}
+.single-blog-post .post-content .post-meta li {
+    padding-right: 30px;
+    padding-left: 6px;
+}
+.single-blog-post .post-content .post-meta li i {
+    right: 8px;
+    left: auto;
+}
+.single-blog-post .post-content .post-meta li:first-child {
+    padding-right: 8px;
+}
+.contact-form .with-errors ul {
+    padding-right: 0;
+}
+.text-left {
+    text-align: right !important;
+}
+.go-top {
+    left: 20px;
+    right: auto;
+}
+.productsQuickView .modal-content .product-content .product-add-to-cart .input-counter {
+    margin-left: 10px;
+    margin-right: 0;
+}
+.productsQuickView .modal-content .product-content .product-review .rating {
+    padding-left: 5px;
+    padding-right: 0;
+}
+.productsQuickView .modal-content .product-content .buy-checkbox-btn .cbx span:last-child {
+    padding-right: 4px;
+    padding-left: 0;
+}
+.productsQuickView .modal-content .product-content .products-share .social {
+    padding-right: 0;
+}
+.productsQuickView .modal-content .product-content .products-share .social li span {
+    margin-left: 3px;
+    margin-right: 0;
+}
+.book-about-content .book-list {
+    padding-right: 0;
+}
+.book-about-content .book-list li i {
+    margin-left: 5px;
+    margin-right: 0;
+}
+.single-book-feature {
+    text-align: right;
+}
+.slick-slide {
+    float: right;
+}
+.author-content .social-icon {
+    padding-right: 0;
+}
+.author-content .social-icon li {
+    margin-left: 5px;
+    margin-right: 0;
+}
+.author-content .social-icon li:last-child {
+    margin-left: 0;
+}
+.author-area .row .col-lg-4 {
+    padding-left: 0;
+}
+.products-banner-area.two .banner-image {
+    text-align: right;
+}
+.products-about-image {
+    text-align: left;
+}
+.products-about-content .products-list {
+    padding-right: 0;
+}
+.products-about-content .products-list li i {
+    margin-left: 5px;
+    margin-right: 0;
+}
+.overview-content ul li i {
+    padding-left: 4px;
+    padding-right: 0;
+}
+.overview-content.text-color {
+    padding-right: 35px;
+    padding-left: 0;
+}
+.single-products-box .products-content .star-rating {
+    left: 0;
+    right: auto;
+}
+.single-products-box .products-content .add-to-cart {
+    right: 0;
+    left: auto;
+    transform: translateX(-20px);
+}
+.products-banner-area .banner-image {
+    text-align: left;
+}
+.why-choose-content {
+    text-align: right;
+}
+.single-saas-features {
+    text-align: right;
+}
+.saas-about-image {
+    text-align: left;
+}
+.single-pricing-box.two {
+    text-align: right;
+}
+.single-pricing-box .pricing-features li i {
+    margin-left: 5px;
+    margin-right: 0;
+}
+.page-title-content ul {
+    padding-right: 0;
+}
+.page-title-content ul li::before {
+    left: -15px;
+    right: auto;
+}
+.product-details-desc .product-add-to-cart .input-counter {
+    margin-left: 10px;
+    margin-right: 0;
+}
+.product-details-desc .product-review .rating {
+    padding-left: 5px;
+    padding-right: 0;
+}
+.product-details-desc .buy-checkbox-btn .cbx span:last-child {
+    padding-right: 4px;
+    padding-left: 0;
+}
+.product-details-desc .products-share .social {
+    padding-right: 0;
+}
+.product-details-desc .products-share .social li span {
+    margin-left: 3px;
+    margin-right: 0;
+}
+.products-details-tab .tabs {
+    padding-right: 0;
+}
+.products-details-tab .tabs li {
+    margin-left: 5px;
+    margin-right: 0;
+}
+.products-details-tab .tab_content .tabs_item .products-details-tab-content .product-review-form .review-title .default-btn {
+    left: 0;
+    right: auto;
+}
+.widget-area .widget_search form button {
+    left: 0;
+    right: auto;
+}
+.widget-area .widget .widget-title::before {
+    right: 0;
+    left: auto;
+}
+.widget-area .widget_categories ul {
+    padding-right: 0;
+}
+.widget-area .widget_categories ul li {
+    padding-right: 14px;
+    padding-left: 0;
+}
+.widget-area .widget_categories ul li::before {
+    right: 0;
+    left: auto;
+}
+.widget-area .widget_recent_comments ul {
+    padding-right: 0;
+}
+.widget-area .widget_recent_comments ul li {
+    padding-right: 14px;
+    padding-left: 0;
+}
+.widget-area .widget_recent_comments ul li::before {
+    right: 0;
+    left: auto;
+}
+.widget-area .widget_recent_entries ul {
+    padding-right: 0;
+}
+.widget-area .widget_recent_entries ul li {
+    padding-right: 14px;
+    padding-left: 0;
+}
+.widget-area .widget_recent_entries ul li::before {
+    right: 0;
+    left: auto;
+}
+.widget-area .widget_meta ul {
+    padding-right: 0;
+}
+.widget-area .widget_meta ul li {
+    padding-right: 14px;
+    padding-left: 0;
+}
+.widget-area .widget_meta ul li::before {
+    right: 0;
+    left: auto;
+}
+.widget-area .widget_archive ul {
+    padding-right: 0;
+}
+.widget-area .widget_archive ul li {
+    padding-right: 14px;
+    padding-left: 0;
+}
+.widget-area .widget_archive ul li::before {
+    right: 0;
+    left: auto;
+}
+.widget-area .widget_zebu_posts_thumb .item .thumb {
+    float: right;
+    margin-left: 15px;
+    margin-right: 0;
+}
+.blog-details-desc .article-content .entry-meta ul {
+    padding-right: 0;
+}
+.blog-details-desc .article-content .entry-meta ul li {
+    margin-left: 20px;
+    margin-right: 0;
+}
+.blog-details-desc .article-content .entry-meta ul li:last-child {
+    margin-left: 0;
+}
+.blog-details-desc .article-content .entry-meta ul li::before {
+    left: -15px;
+    right: auto;
+}
+blockquote::after, .blockquote::after {
+    right: 0;
+    left: auto;
+}
+.blog-details-desc .article-content .wp-block-gallery.columns-3 {
+    padding-right: 0;
+}
+.blog-details-desc .article-content .features-list {
+    padding-right: 0;
+}
+.blog-details-desc .article-content .features-list li {
+    padding-right: 34px;
+    padding-left: 0;
+}
+.blog-details-desc .article-content .features-list li i {
+    right: 0;
+    left: auto;
+}
+.blog-details-desc .article-footer .article-tags span {
+    margin-left: 5px;
+    margin-right: 0;
+}
+.blog-details-desc .article-footer .article-share .social {
+    padding-right: 0;
+    text-align: left;
+}
+.post-navigation .navigation-links .nav-previous a i {
+    margin-left: 2px;
+    margin-right: 0;
+}
+.post-navigation .navigation-links .nav-next {
+    text-align: left;
+}
+.post-navigation .navigation-links .nav-next a i {
+    margin-right: 2px;
+    margin-left: 0;
+}
+.blog-details-desc .article-footer .article-share .social li span {
+    margin-left: 2px;
+    margin-right: 0;
+}
+.comments-area .comment-body {
+    padding-right: 115px;
+    padding-left: 0;
+}
+.comments-area .comment-author .avatar {
+    right: -115px;
+    left: auto;
+}
+.comments-area .children {
+    margin-right: 30px;
+    margin-left: 0;
+}
+.comments-area .comment-respond .comment-form-cookies-consent {
+    padding-right: 20px;
+    padding-left: 0;
+}
+.comments-area .comment-respond .comment-form-cookies-consent input {
+    right: 0;
+    left: auto;
+}
+.comment-respond-reply .comment-form-cookies-consent {
+    padding-right: 20px;
+    padding-left: 0;
+}
+.comment-respond-reply .comment-form-cookies-consent input {
+    right: 0;
+    left: auto;
+}
+.example-demo-modal.active {
+    left: 0;
+    right: auto;
+}
+.demo-modal-panel {
+    left: 0;
+    right: auto;
+}
+.example-demo-modal {
+    left: -100%;
+    right: auto;
+}
+.example-demo-modal .inner ul {
+    padding-right: 0;
+}
+.example-demo-modal .header-title .example-demo-modal-control {
+    left: 25px;
+    right: auto;
+}
+.demo-modal-panel .sidebar-demo-control {
+    border-radius: 0 5px 5px 0;
+}
+/** Responsive Area
+==============================**/
+@media only screen and (max-width: 767px) {
+    .navbar-light .navbar-nav .nav-item:last-child a {
+        margin-right: 0;
+    }
+    .app-banner-area .banner-image {
+        text-align: center;
+    }
+    .app-about-image {
+        text-align: center;
+    }
+    .author-area .row .col-lg-4 {
+        padding-left: 15px;
+    }
+    .productsQuickView .modal-content {
+        padding: 40px 10px;
+    }
+    .productsQuickView .modal-content .product-content {
+        margin-top: 25px;
+    }
+    .products-banner-area.two .banner-image {
+        text-align: center;
+    }
+    .products-about-image {
+        text-align: center;
+    }
+    .overview-content.text-color {
+        padding-right: 0;
+    }
+    .products-banner-area .banner-image {
+        text-align: center;
+    }
+    .why-choose-image {
+        text-align: center;
+    }
+    .saas-about-image {
+        text-align: center;
+    }
+    .comments-area .comment-body {
+        padding-right: 65px;
+    }
+    .comments-area .children {
+        margin-right: 0;
+    }
+    .comments-area .comment-author .avatar {
+        right: -70px;
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    .navbar-light .navbar-nav .nav-item:last-child a {
+        margin-right: 0;
+    }
+    .app-banner-area .banner-image {
+        text-align: center;
+    }
+    .app-about-image {
+        text-align: center;
+    }
+    .author-area .row .col-lg-4 {
+        padding-left: 15px;
+    }
+    .productsQuickView .modal-content {
+        padding: 40px 10px;
+    }
+    .productsQuickView .modal-content .product-content {
+        margin-top: 25px;
+    }
+    .products-banner-area.two .banner-image {
+        text-align: center;
+    }
+    .products-about-image {
+        text-align: center;
+    }
+    .overview-content.text-color {
+        padding-right: 0;
+    }
+    .products-banner-area .banner-image {
+        text-align: center;
+    }
+    .why-choose-image {
+        text-align: center;
+    }
+    .saas-about-image {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+   
+}
+
+@media only screen and (max-width: 991px) {
+    
+}

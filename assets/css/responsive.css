@@ -1,0 +1,637 @@
+/*
+Responsive CSS
+============================*/
+@media only screen and (max-width: 767px) {
+  .ptb-100 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .pt-100 {
+    padding-top: 50px;
+  }
+  .pb-100 {
+    padding-bottom: 50px;
+  }
+  .pb-70 {
+    padding-bottom: 20px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .section-title {
+    margin: 0 auto 30px;
+  }
+  .section-title h2 {
+    font-size: 30px;
+  }
+  .section-title p {
+    font-size: 15px;
+  }
+  .navbar-light .navbar-nav .nav-item a {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 15px;
+  }
+  .navbar-light .others-option .option-item .social-icon {
+    margin-top: 20px;
+  }
+  .book-banner-area {
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .main-banner-content {
+    text-align: center;
+    max-width: 100%;
+  }
+  .main-banner-content span {
+    font-size: 15px;
+  }
+  .main-banner-content h1 {
+    font-size: 30px;
+  }
+  .main-banner-content .banner-btn {
+    margin-top: 20px;
+  }
+  .banner-image {
+    margin-top: 35px;
+  }
+  .book-about-content {
+    padding: 0;
+  }
+  .book-about-content h3 {
+    font-size: 26px;
+  }
+  .single-book-feature h3 {
+    font-size: 20px;
+  }
+  .single-book-feature .icon i {
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    font-size: 35px;
+  }
+  .single-fun-fact h3 {
+    font-size: 30px;
+    margin: 6px 0 5px 0;
+  }
+  .reviews-area {
+    overflow: hidden;
+  }
+  .reviews-slides .reviews-feedback .single-feedback p {
+    font-size: 20px;
+  }
+  .newsletter-form-content .newsletter-content {
+    margin-top: 35px;
+  }
+  .newsletter-form-content .newsletter-content h2 {
+    font-size: 25px;
+  }
+  .newsletter-form-content .newsletter-form button {
+    position: relative;
+    right: 0;
+    top: 0;
+    margin-top: 15px;
+  }
+  .single-pricing-box .pricing-header h3 {
+    font-size: 20px;
+  }
+  .single-pricing-box .price {
+    font-size: 30px;
+  }
+  .author-content {
+    padding: 20px;
+  }
+  .author-content h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+  .author-content .social-icon {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .author-area .row .col-lg-4 {
+    padding-right: 15px;
+  }
+  .author-image {
+    text-align: center;
+  }
+  .single-blog-post .post-content {
+    padding: 16px;
+  }
+  .single-blog-post .post-content h3 {
+    font-size: 20px;
+  }
+  .contact-image {
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .products-banner-area {
+    height: 100%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+  .products-banner-area .banner-image {
+    text-align: center;
+  }
+  .products-about-content h3 {
+    font-size: 26px;
+  }
+  .products-about-image {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .why-choose-image {
+    margin-bottom: 20px;
+  }
+  .app-download-content {
+    margin-top: 35px;
+    text-align: center;
+  }
+  .app-download-content h3 {
+    font-size: 26px;
+  }
+  .app-download-content .app-holder a img {
+    max-width: 100px;
+  }
+  .video-content {
+    padding-top: 55px;
+    padding-bottom: 70px;
+  }
+  .video-content h3 {
+    font-size: 28px;
+  }
+  .single-gallery-item .gallery-content h3 {
+    font-size: 20px;
+  }
+  .app-banner-area {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .app-banner-area .main-banner-content h1 {
+    font-size: 30px;
+  }
+  .app-banner-area .main-banner-content .banner-holder a img {
+    max-width: 128px;
+  }
+  .app-banner-area .banner-image {
+    text-align: center;
+  }
+  .app-banner-area .banner-image img {
+    max-width: 100%;
+  }
+  .single-app-features h3 {
+    font-size: 20px;
+  }
+  .app-about-area .container {
+    padding: 20px;
+  }
+  .app-about-content {
+    text-align: center;
+  }
+  .app-about-content h3 {
+    font-size: 26px;
+  }
+  .app-about-image {
+    text-align: center;
+    margin-top: 35px;
+  }
+  .saas-banner-area {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .saas-banner-area .main-banner-content h1 {
+    font-size: 30px;
+  }
+  .banner-form {
+    margin-top: 30px;
+  }
+  .single-saas-features h3 {
+    font-size: 20px;
+  }
+  .saas-about-content h3 {
+    font-size: 26px;
+  }
+  .saas-about-image {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .overview-item {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .overview-item:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  .overview-content {
+    margin-bottom: 30px;
+  }
+  .overview-content.text-color {
+    padding-left: 0;
+  }
+  .overview-content h3 {
+    font-size: 24px;
+  }
+  :nth-child(3) .overview-content {
+    margin-bottom: 0;
+  }
+  :nth-child(3) .overview-left-img {
+    margin-bottom: 30px;
+  }
+  .page-title-area {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .page-title-content h2 {
+    font-size: 25px;
+  }
+  .page-title-content ul {
+    margin-top: 12px;
+  }
+  .blog-details-desc .article-content h3 {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  .blog-details-desc .article-content .features-list li {
+    font-size: 15px;
+  }
+  blockquote, .blockquote {
+    padding: 30px !important;
+  }
+  blockquote p, .blockquote p {
+    font-size: 18px !important;
+  }
+  .comments-area .comment-body {
+    padding-left: 70px;
+  }
+  .comments-area .comment-author .avatar {
+    height: 55px;
+    width: 55px;
+    left: -70px;
+  }
+  .comments-area .comment-metadata {
+    font-size: 12px;
+  }
+  .comments-area .children {
+    margin-left: 0;
+  }
+  .comments-area .comments-title {
+    font-size: 20px;
+  }
+  .comments-area .comment-respond .comment-reply-title {
+    font-size: 20px;
+  }
+  .widget-area .widget:first-child {
+    margin-top: 30px;
+  }
+  .product-details-image {
+    height: 500px;
+  }
+  .product-details-desc {
+    padding: 0;
+    margin-top: 25px;
+  }
+  .product-details-desc .buy-checkbox-btn .cbx span:last-child {
+    font-size: 14px;
+  }
+  .products-details-tab .tabs li a {
+    font-size: 15px;
+  }
+  .products-details-tab .tab_content {
+    padding: 20px;
+  }
+  .products-details-tab .tab_content .tabs_item .products-details-tab-content h3 {
+    font-size: 20px;
+  }
+  .products-details-tab .tab_content .tabs_item .products-details-tab-content .product-review-form .review-title .default-btn {
+    display: none;
+  }
+  .products-details-tab .tab_content .tabs_item .products-details-tab-content .product-review-form .review-comments .review-item {
+    padding-right: 0;
+  }
+  .products-details-tab .tab_content .tabs_item .products-details-tab-content .product-review-form .review-comments .review-item .review-report-link {
+    position: relative;
+    top: 10px;
+  }
+  .products-banner-area.two {
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .products-banner-area.two .banner-image {
+    margin-top: 0;
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .products-banner-area.two .main-banner-content.two h1 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+  .specification-image {
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .users-content h3 {
+    font-size: 25px;
+  }
+  .faq-image {
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .newsletter-image {
+    text-align: center;
+  }
+  .productsQuickView .modal-content {
+    padding: 40px 10px;
+  }
+  .productsQuickView .modal-content .product-content {
+    margin-top: 25px;
+  }
+  .example-demo-modal .inner {
+    width: 280px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ptb-100 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .pt-100 {
+    padding-top: 70px;
+  }
+  .pb-100 {
+    padding-bottom: 70px;
+  }
+  .pb-70 {
+    padding-bottom: 40px;
+  }
+  .section-title {
+    margin: 0 auto 30px;
+  }
+  .section-title h2 {
+    font-size: 45px;
+  }
+  .navbar-light .navbar-nav .nav-item a {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 15px;
+  }
+  .navbar-light .others-option .option-item .social-icon {
+    margin-top: 20px;
+  }
+  .book-banner-area {
+    height: 100%;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .main-banner-content {
+    text-align: center;
+    max-width: 100%;
+  }
+  .main-banner-content span {
+    font-size: 15px;
+  }
+  .main-banner-content h1 {
+    font-size: 50px;
+  }
+  .main-banner-content .banner-btn {
+    margin-top: 20px;
+  }
+  .banner-image {
+    margin-top: 35px;
+  }
+  .book-about-content {
+    padding: 0;
+  }
+  .book-about-content h3 {
+    font-size: 36px;
+  }
+  .single-book-feature h3 {
+    font-size: 20px;
+  }
+  .single-book-feature .icon i {
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    font-size: 35px;
+  }
+  .single-fun-fact h3 {
+    font-size: 30px;
+    margin: 6px 0 5px 0;
+  }
+  .reviews-area {
+    overflow: hidden;
+  }
+  .reviews-slides .reviews-feedback .single-feedback p {
+    font-size: 20px;
+  }
+  .newsletter-form-content .newsletter-content {
+    margin-top: 35px;
+  }
+  .newsletter-form-content .newsletter-content h2 {
+    font-size: 35px;
+  }
+  .newsletter-form-content .newsletter-form button {
+    position: relative;
+    right: 0;
+    top: 0;
+    margin-top: 15px;
+  }
+  .single-pricing-box .pricing-header h3 {
+    font-size: 20px;
+  }
+  .single-pricing-box .price {
+    font-size: 30px;
+  }
+  .author-content {
+    padding: 20px;
+  }
+  .author-content h3 {
+    font-size: 35px;
+    margin-bottom: 15px;
+  }
+  .author-content .social-icon {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .author-area .row .col-lg-4 {
+    padding-right: 15px;
+  }
+  .author-image {
+    text-align: center;
+  }
+  .single-blog-post .post-content {
+    padding: 16px;
+  }
+  .single-blog-post .post-content h3 {
+    font-size: 20px;
+  }
+  .contact-image {
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .products-banner-area {
+    height: 100%;
+    padding-bottom: 70px;
+    padding-top: 70px;
+  }
+  .products-banner-area .banner-image {
+    text-align: center;
+  }
+  .products-about-content h3 {
+    font-size: 36px;
+  }
+  .products-about-image {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .why-choose-image {
+    margin-bottom: 20px;
+  }
+  .app-download-content {
+    margin-top: 35px;
+    text-align: center;
+  }
+  .app-download-content h3 {
+    font-size: 36px;
+  }
+  .video-content {
+    padding-top: 55px;
+    padding-bottom: 70px;
+  }
+  .video-content h3 {
+    font-size: 28px;
+  }
+  .single-gallery-item .gallery-content h3 {
+    font-size: 20px;
+  }
+  .app-banner-area {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .app-banner-area .main-banner-content h1 {
+    font-size: 50px;
+  }
+  .app-banner-area .main-banner-content .banner-holder a img {
+    max-width: 128px;
+  }
+  .app-banner-area .banner-image {
+    text-align: center;
+  }
+  .app-banner-area .banner-image img {
+    max-width: 100%;
+  }
+  .app-about-area {
+    text-align: center;
+  }
+  .app-about-area .container {
+    padding: 20px;
+  }
+  .app-about-content h3 {
+    font-size: 36px;
+  }
+  .app-about-image {
+    text-align: center;
+    margin-top: 35px;
+  }
+  .app-download {
+    text-align: center;
+  }
+  .saas-banner-area {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .saas-banner-area .main-banner-content h1 {
+    font-size: 50px;
+  }
+  .banner-form {
+    margin-top: 30px;
+  }
+  .saas-about-content h3 {
+    font-size: 36px;
+  }
+  .saas-about-image {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .overview-item {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .overview-item:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  .widget-area .widget:first-child {
+    margin-top: 30px;
+  }
+  .product-details-image {
+    height: 500px;
+  }
+  .product-details-desc {
+    padding: 0;
+    margin-top: 25px;
+  }
+  .page-title-content h2 {
+    font-size: 40px;
+  }
+  .products-banner-area.two {
+    height: 100%;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .products-banner-area.two .banner-image {
+    margin-top: 0;
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .products-banner-area.two .main-banner-content.two h1 {
+    font-size: 50px;
+    margin-bottom: 16px;
+  }
+  .specification-image {
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .users-content h3 {
+    font-size: 35px;
+  }
+  .faq-image {
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .newsletter-image {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .main-banner-content h1 {
+    font-size: 60px;
+  }
+  .single-blog-post .post-content h3 {
+    font-size: 20px;
+  }
+  .single-products-feature {
+    padding: 20px;
+  }
+  .single-products-feature h3 {
+    font-size: 18px;
+  }
+  .single-app-features h3 {
+    font-size: 22px;
+  }
+  .single-fun-fact p {
+    font-size: 16px;
+  }
+  .single-saas-features h3 {
+    font-size: 22px;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */
