@@ -167,8 +167,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   background-color: var(--blackColor);
   color: var(--whiteColor);
-  -webkit-transition: width 0.5s ease-in-out,  height 0.5s ease-in-out;
-  transition: width 0.5s ease-in-out,  height 0.5s ease-in-out;
+  -webkit-transition: width 0.5s ease-in-out, 
+ height 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, 
+ height 0.5s ease-in-out;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   z-index: -1;
@@ -5208,3 +5210,4 @@ Sidebar Eaxmple Demo CSS
   visibility: visible;
 }
 /*# sourceMappingURL=style.css.map */
+

@@ -4,38 +4,36 @@
  {% block main %}
  <!-- Start Book Banner Area -->
  <div id="home" class="book-banner-area">
+    {% for b in new_book %}
     <div class="d-table">
         <div class="d-table-cell">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="main-banner-content">
-                            <span>A great Book</span>
-                            <h1>Big Mockup Cover Vault</h1>
-                            <p>We passion to work hard and deliver excellent results. It could solve the needs of your customers and develop innovation.</p>
+                            <span> {{b.author}}</span>
+                            <h1>{{b.name}}</h1>
+                            <p>{{b.description|truncatewords:40}}</p>
 
                             <div class="banner-btn">
-                                <a href="#" class="default-btn">
-                                    Buy Book
+                                <a href="{% url 'Book:book_detail' b.slug %}" class="default-btn">
+                                    جزیات بیشتر
                                     <span></span>
                                 </a>
-                            </div>
-
-                            <div class="text">
-                                <p>* eBook includes iBooks, PDF & ePub versions</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="banner-image">
-                            <img src="assets/img/book-banner.png" alt="image">
+                            <img src="{{b.image.url}}" alt="{{b.slug}}">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {% endfor %}
 </div>
 <!-- End Book Banner Area -->
 
@@ -43,535 +41,38 @@
 <section class="book-area ptb-100">
     <div class="container">
         <div class="section-title">
-            <h2>Featured Book</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>جدیدترین کتاب ها</h2>
         </div>
-
+        
         <div class="book-slider owl-carousel owl-theme">
+            {% for b in books %}
             <div class="book-item">
                 <div class="image">
                     <a href="#">
-                        <img src="assets/img/featured-book/book1.jpg" alt="image">
+                        <img src="{{b.image.url}}" alt="{{b.slug}}">
                     </a>
-
                     <div class="icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                        <a href="{% url 'Book:book_detail' b.slug %}" data-bs-toggle="modal" data-bs-target="#productsQuickView">
                             <i class="las la-eye"></i>
                         </a>
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
-            <div class="book-item">
-                <div class="image">
-                    <a href="#">
-                        <img src="assets/img/featured-book/book2.jpg" alt="image">
-                    </a>
 
-                    <div class="icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                            <i class="las la-eye"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="book-item">
-                <div class="image">
-                    <a href="#">
-                        <img src="assets/img/featured-book/book3.jpg" alt="image">
-                    </a>
-
-                    <div class="icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                            <i class="las la-eye"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="book-item">
-                <div class="image">
-                    <a href="#">
-                        <img src="assets/img/featured-book/book4.jpg" alt="image">
-                    </a>
-
-                    <div class="icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                            <i class="las la-eye"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="book-item">
-                <div class="image">
-                    <a href="#">
-                        <img src="assets/img/featured-book/book5.jpg" alt="image">
-                    </a>
-
-                    <div class="icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                            <i class="las la-eye"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="book-item">
-                <div class="image">
-                    <a href="#">
-                        <img src="assets/img/featured-book/book6.jpg" alt="image">
-                    </a>
-
-                    <div class="icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                            <i class="las la-eye"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="book-item">
-                <div class="image">
-                    <a href="#">
-                        <img src="assets/img/featured-book/book7.jpg" alt="image">
-                    </a>
-
-                    <div class="icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                            <i class="las la-eye"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="book-item">
-                <div class="image">
-                    <a href="#">
-                        <img src="assets/img/featured-book/book8.jpg" alt="image">
-                    </a>
-
-                    <div class="icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                            <i class="las la-eye"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="book-item">
-                <div class="image">
-                    <a href="#">
-                        <img src="assets/img/featured-book/book9.jpg" alt="image">
-                    </a>
-
-                    <div class="icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                            <i class="las la-eye"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="book-item">
-                <div class="image">
-                    <a href="#">
-                        <img src="assets/img/featured-book/book10.jpg" alt="image">
-                    </a>
-
-                    <div class="icon">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                            <i class="las la-eye"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
 <!-- End Book Area -->
 
-<!-- Start About Area -->
-<section id="about" class="book-about-area pb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="book-about-image"></div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="book-about-content">
-                    <h3>About The Book</h3>
-                    <strong>Take a look at topics are discovered in this book</strong>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
 
-                    <ul class="book-list">
-                        <li>
-                            <i class="las la-check"></i>
-                            Design principles
-                        </li>
-                        <li>
-                            <i class="las la-check"></i>
-                            White space
-                        </li>
-                        <li>
-                            <i class="las la-check"></i>
-                            Responsive Design
-                        </li>
-                        <li>
-                            <i class="las la-check"></i>
-                            Color theory
-                        </li>
-                        <li>
-                            <i class="las la-check"></i>
-                            UX design
-                        </li>
-                        <li>
-                            <i class="las la-check"></i>
-                            Visual hierarchy
-                        </li>
-                        <li>
-                            <i class="las la-check"></i>
-                            Writing
-                        </li>
-                        <li>
-                            <i class="las la-check"></i>
-                            Reading
-                        </li>
-                        <li>
-                            <i class="las la-check"></i>
-                            Photographing
-                        </li>
-                        <li>
-                            <i class="las la-check"></i>
-                            Typography
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End About Area -->
 
-<!-- Start Book Feature Area -->
-<section class="book-feature-area pb-70">
-    <div class="container">
-        <div class="section-title">
-            <h2>Discoverd Topics</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-book-feature">
-                    <div class="icon">
-                        <i class="las la-print"></i>
-                    </div>
-                    <h3>Printed Book</h3>
-                    <p>List one of your book's benefits here. Lorem ipsum dolor sit amet</p>
-                </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="single-book-feature">
-                    <div class="icon">
-                        <i class="lar la-edit"></i>
-                    </div>
-                    <h3>User Research</h3>
-                    <p>List one of your book's benefits here. Lorem ipsum dolor sit amet</p>
-                </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="single-book-feature">
-                    <div class="icon">
-                        <i class="las la-camera"></i>
-                    </div>
-                    <h3>Photographing</h3>
-                    <p>List one of your book's benefits here. Lorem ipsum dolor sit amet</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-4 col-md-6">
-                <div class="single-book-feature">
-                    <div class="icon">
-                        <i class="las la-pen"></i>
-                    </div>
-                    <h3>Writing</h3>
-                    <p>List one of your book's benefits here. Lorem ipsum dolor sit amet</p>
-                </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="single-book-feature">
-                    <div class="icon">
-                        <i class="las la-book-reader"></i>
-                    </div>
-                    <h3>Reading</h3>
-                    <p>List one of your book's benefits here. Lorem ipsum dolor sit amet</p>
-                </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="single-book-feature">
-                    <div class="icon">
-                        <i class="lar la-newspaper"></i>
-                    </div>
-                    <h3>Editorials</h3>
-                    <p>List one of your book's benefits here. Lorem ipsum dolor sit amet</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Book Feature Area -->
-
-<!-- Start Fun Facts Area -->
-<section class="fun-facts-area pt-100 pb-70">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-fun-fact">
-                    <div class="icon">
-                        <i class="las la-book-open"></i>
-                    </div>
-                    <h3>
-                        <span class="odometer" data-count="370">00</span>
-                    </h3>
-                    <p>Total Pages</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-fun-fact">
-                    <div class="icon">
-                        <i class="las la-user"></i>
-                    </div>
-                    <h3>
-                        <span class="odometer" data-count="560">00</span>
-                    </h3>
-                    <p>Active Readers</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-fun-fact">
-                    <div class="icon">
-                        <i class="lar la-heart"></i>
-                    </div>
-                    <h3>
-                        <span class="odometer" data-count="260">00</span>
-                    </h3>
-                    <p>Facebook Fans</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-fun-fact">
-                    <div class="icon">
-                        <i class="lar la-envelope-open"></i>
-                    </div>
-                    <h3>
-                        <span class="odometer" data-count="789">00</span>
-                    </h3>
-                    <p>Subscribers</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Fun Facts Area -->
-
-<!-- Start Reviews Area -->
-<section id="reviews" class="reviews-area ptb-100">
-    <div class="container">
-        <div class="section-title">
-            <h2>Customer Reviews</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-
-        <div class="reviews-slides">
-            <div class="reviews-feedback">
-                <div>
-                    <div class="item">
-                        <div class="single-feedback">
-                            <div class="icon">
-                                <i class="fa fa-quote-left"></i>
-                            </div>
-                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Quis ipsum suspendisse ultrices gravida.”</p>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="single-feedback">
-                            <div class="icon">
-                                <i class="fa fa-quote-left"></i>
-                            </div>
-                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Quis ipsum suspendisse ultrices gravida.”</p>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="single-feedback">
-                            <div class="icon">
-                                <i class="fa fa-quote-left"></i>
-                            </div>
-                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Quis ipsum suspendisse ultrices gravida.”</p>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="single-feedback">
-                            <div class="icon">
-                                <i class="fa fa-quote-left"></i>
-                            </div>
-                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Quis ipsum suspendisse ultrices gravida.”</p>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="single-feedback">
-                            <div class="icon">
-                                <i class="fa fa-quote-left"></i>
-                            </div>
-                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Quis ipsum suspendisse ultrices gravida.”</p>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="single-feedback">
-                            <div class="icon">
-                                <i class="fa fa-quote-left"></i>
-                            </div>
-                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Quis ipsum suspendisse ultrices gravida.”</p>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="single-feedback">
-                            <div class="icon">
-                                <i class="fa fa-quote-left"></i>
-                            </div>
-                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Quis ipsum suspendisse ultrices gravida.”</p>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="single-feedback">
-                            <div class="icon">
-                                <i class="fa fa-quote-left"></i>
-                            </div>
-                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Quis ipsum suspendisse ultrices gravida.”</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <button class="prev-arrow slick-arrow">
-                    <i class="las la-arrow-left"></i>
-                </button>
-                
-                <button class="next-arrow slick-arrow">
-                    <i class="las la-arrow-right"></i>
-                </button>
-            </div>
-            
-            <div class="reviews-thumbnails">
-                <div>
-                    <div class="item">
-                        <div class="img-fill">
-                            <img src="assets/img/client/1.jpg" alt="client">
-                        </div>
-                        
-                        <div class="title">
-                            <h3>Jonus Nathan</h3>
-                            <span>CEO at Envato</span>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="img-fill">
-                            <img src="assets/img/client/2.jpg" alt="client">
-                        </div>
-                        
-                        <div class="title">
-                            <h3>Sadio Finn</h3>
-                            <span>CEO at FlatIcon</span>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="img-fill">
-                            <img src="assets/img/client/3.jpg" alt="client">
-                        </div>
-                        
-                        <div class="title">
-                            <h3>Tom Olivar</h3>
-                            <span>CEO at ThemeForest</span>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="img-fill">
-                            <img src="assets/img/client/4.jpg" alt="client">
-                        </div>
-                        
-                        <div class="title">
-                            <h3>James Finn</h3>
-                            <span>CEO at GitLab</span>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="img-fill">
-                            <img src="assets/img/client/5.jpg" alt="client">
-                        </div>
-                        
-                        <div class="title">
-                            <h3>John Lucy</h3>
-                            <span>CEO at Linkedin</span>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="img-fill">
-                            <img src="assets/img/client/6.jpg" alt="client">
-                        </div>
-                        
-                        <div class="title">
-                            <h3>Sarah Taylor</h3>
-                            <span>CEO at Twitter</span>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="img-fill">
-                            <img src="assets/img/client/7.jpg" alt="client">
-                        </div>
-                        
-                        <div class="title">
-                            <h3>James Anderson</h3>
-                            <span>CEO at Facebook</span>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="img-fill">
-                            <img src="assets/img/client/8.jpg" alt="client">
-                        </div>
-                        
-                        <div class="title">
-                            <h3>Steven Smith</h3>
-                            <span>CEO at EnvyTheme</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Reviews Area -->
 
 <!-- Start Newsletter Area -->
 <div class="newsletter-area ptb-100">
@@ -579,21 +80,21 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="newsletter-image">
-                    <img src="assets/img/newsletter.png" alt="image">
+                    <img src="{% static 'img/newsletter.png' %}" alt="image">
                 </div>
             </div>
 
             <div class="col-lg-6">
                 <div class="newsletter-form-content">
                     <div class="newsletter-content">
-                        <h2>Subscribe To Our Newsletter</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing  ipsum sLorem ipsuia dolor sit amet, consectetur adipisci velit sed quia non numquam quaerat voluptatem.uspendisse ultrices gravida.</p>
+                        <h2>عضویت در خبرنامه</h2>
+                        <p>برای اطلاع از آخرین کتاب های موجود و همچنین اطلاع از پست جدید در وبلاگ ما، حتما ایمیل خودتان را وارد نمایید تا در خبرنامه ی سایت، عضو شوید.</p>
                     </div>
                     
                     <form class="newsletter-form">
-                        <input type="email" class="input-newsletter" placeholder="Your Email Address" name="EMAIL" required autocomplete="off">
+                        <input type="email" class="input-newsletter" placeholder="ایمیل خود را وارد نمایید" name="EMAIL" required autocomplete="off">
                         <button type="submit">
-                            Subscribe Now
+                            ثبت ایمیل
                         </button>
                         
                         <div id="validator-newsletter" class="form-result"></div>
@@ -605,253 +106,94 @@
 </div>
 <!-- End Newsletter Area -->
 
-<!-- Start Pricing Area -->
-<section id="pricing" class="pricing-area pt-100 pb-70">
-    <div class="container">
-        <div class="section-title">
-            <h2>Pricing Plan</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-pricing-box">
-                    <div class="pricing-header">
-                        <h3>Free</h3>
-                    </div>
-
-                    <div class="price">
-                        $0 <span>m</span>
-                    </div>
-
-                    <ul class="pricing-features">
-                        <li>Drag & Drop Builder</li>
-                        <li>Lead Generation & Sales</li>
-                        <li>Boot & Digital Assistants</li>
-                        <li>Customer Service</li>
-                        <li> Up to 1000 Subscribers</li>
-                        <li>Unlimited Broadcasts</li>
-                        <li>Landing Pages & Web Widgets</li>
-                    </ul>
-
-                    <div class="pricing-btn">
-                        <a href="#" class="default-btn">
-                            Buy Now
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-pricing-box">
-                    <div class="pricing-header">
-                        <h3>Pro</h3>
-                    </div>
-
-                    <div class="price">
-                        $149 <span>m</span>
-                    </div>
-
-                    <ul class="pricing-features">
-                        <li>Drag & Drop Builder</li>
-                        <li>Lead Generation & Sales</li>
-                        <li>Boot & Digital Assistants</li>
-                        <li>Customer Service</li>
-                        <li> Up to 1000 Subscribers</li>
-                        <li>Unlimited Broadcasts</li>
-                        <li>Landing Pages & Web Widgets</li>
-                    </ul>
-
-                    <div class="pricing-btn">
-                        <a href="#" class="default-btn">
-                            Buy Now
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-pricing-box">
-                    <div class="pricing-header">
-                        <h3>Premium</h3>
-                    </div>
-
-                    <div class="price">
-                        $179 <span>m</span>
-                    </div>
-
-                    <ul class="pricing-features">
-                        <li>Drag & Drop Builder</li>
-                        <li>Lead Generation & Sales</li>
-                        <li>Boot & Digital Assistants</li>
-                        <li>Customer Service</li>
-                        <li> Up to 1000 Subscribers</li>
-                        <li>Unlimited Broadcasts</li>
-                        <li>Landing Pages & Web Widgets</li>
-                    </ul>
-
-                    <div class="pricing-btn">
-                        <a href="#" class="default-btn">
-                            Buy Now
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Pricing Area -->
-
-<!-- Start Author Area -->
-<section id="author" class="author-area pt-100 pb-100">
-    <div class="container">
-        <div class="section-title">
-            <h2>About Author</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <div class="author-content">
-                    <h3>Steve Augarde</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-
-                    <ul class="social-icon">
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="lab la-twitter"></i>
-                            </a>
-                        </li>
-    
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="lab la-instagram"></i>
-                            </a>
-                        </li>
-    
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="lab la-facebook-f"></i>
-                            </a>
-                        </li>
+  <!-- Start QuickView Modal Area -->
+  <div class="modal fade productsQuickView" id="productsQuickView" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="las la-times"></i></span>
+            </button>
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="products-image">
                         
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="lab la-linkedin-in"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="author-image">
-                    <img src="assets/img/author/author1.jpg" alt="image">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Author Area -->
-
-<!-- Start Blog Area -->
-<section id="blog" class="blog-area pt-100 pb-70">
-    <div class="container">
-        <div class="section-title">
-            <h2>Our Blog</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog-post">
-                    <div class="post-image">
-                        <a href="single-blog.html">
-                            <img src="assets/img/blog/blog1.jpg" alt="image">
-                        </a>
-                    </div>
-
-                    <div class="post-content">
-                        <ul class="post-meta d-flex justify-content-between align-items-center">
-                            <li>
-                                <div class="post-author d-flex align-items-center">
-                                    <img src="assets/img/client/2.jpg" class="rounded-circle" alt="image">
-                                    <span>Jean Auel</span>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="lar la-calendar"></i> April 30, 2021
-                            </li>
-                        </ul>
-                        <h3>
-                            <a href="single-blog.html">The Most Popular New Business Apps</a>
-                        </h3>
-                        <p>List one of your book's benefits here. Lorem ipsum dolor sit amet</p>
+                        <img src="{{book.image.url}}" alt="image">
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog-post">
-                    <div class="post-image">
-                        <a href="single-blog.html">
-                            <img src="assets/img/blog/blog2.jpg" alt="image">
-                        </a>
-                    </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product-content">
+                        <h3>{{i.title}}</h3>
+                        <div class="price">
+                            <span class="new-price">{{i.price}}</span>
+                            <span class="old-price">{{i.price}}</span>
+                        </div>
+                        <div class="product-review">
+                            <div class="rating">
+                                <i class="las la-star"></i>
+                                <i class="las la-star"></i>
+                                <i class="las la-star"></i>
+                                <i class="las la-star"></i>
+                                <i class="las la-star"></i>
+                            </div>
+                            <a href="#" class="rating-count">5 reviews</a>
+                        </div>
+                        <p>{{i.description}}</p>
+                        <div class="product-add-to-cart">
+                            <div class="input-counter">
+                                <span class="minus-btn">
+                                    <i class="las la-minus"></i>
+                                </span>
+                                <input type="text" min="1" value="1">
+                                <span class="plus-btn">
+                                    <i class="las la-plus"></i>
+                                </span>
+                            </div>
+                            <button type="submit" class="default-btn">
+                                Add to cart
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="buy-checkbox-btn">
+                            <div class="item">
+                                <input class="inp-cbx" id="cbx" type="checkbox">
+                                <label class="cbx" for="cbx">
+                                    <span>
+                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                        </svg>
+                                    </span>
+                                    <span>I agree with the terms and conditions</span>
+                                </label>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="btn btn-light">Buy it now!</a>
+                            </div>
+                        </div>
+                    
 
-                    <div class="post-content">
-                        <ul class="post-meta d-flex justify-content-between align-items-center">
-                            <li>
-                                <div class="post-author d-flex align-items-center">
-                                    <img src="assets/img/client/7.jpg" class="rounded-circle" alt="image">
-                                    <span>Jane Austen</span>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="lar la-calendar"></i> April 30, 2021
-                            </li>
-                        </ul>
-                        <h3>
-                            <a href="single-blog.html">The Most Popular New Apps in 2021</a>
-                        </h3>
-                        <p>List one of your book's benefits here. Lorem ipsum dolor sit amet</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog-post">
-                    <div class="post-image">
-                        <a href="single-blog.html">
-                            <img src="assets/img/blog/blog3.jpg" alt="image">
-                        </a>
-                    </div>
-
-                    <div class="post-content">
-                        <ul class="post-meta d-flex justify-content-between align-items-center">
-                            <li>
-                                <div class="post-author d-flex align-items-center">
-                                    <img src="assets/img/client/8.jpg" class="rounded-circle" alt="image">
-                                    <span>Paul Auster</span>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="lar la-calendar"></i> April 30, 2021
-                            </li>
-                        </ul>
-                        <h3>
-                            <a href="single-blog.html">3 WooCommerce Plugins to Boost Sales</a>
-                        </h3>
-                        <p>List one of your book's benefits here. Lorem ipsum dolor sit amet</p>
+                        <div class="products-share">
+                            <ul class="social">
+                                <li><span>Share:</span></li>
+                                <li>
+                                    <a href="#" class="facebook" target="_blank"><i class="lab la-facebook-f"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="twitter" target="_blank"><i class="lab la-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="linkedin" target="_blank"><i class="lab la-linkedin-in"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="instagram" target="_blank"><i class="lab la-instagram"></i></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!-- End Blog Area -->
+</div>
+<!-- End QuickView Modal Area -->
 {% endblock %}

@@ -1,6 +1,10 @@
 from django.db import models
 
 
+class BookManager(models.Manager):
+    def actived (self):
+        return self.filter(status = 'A')
+
 class Author(models.Model):
     name = models.CharField(max_length=255)
 
@@ -43,11 +47,12 @@ class Book (models.Model):
 
     class Meta:
         db_table = 'Book'
+        ordering = ['-active_date', '-id']
 
     def __str__(self):
         return self.name
   
-
+    objects = BookManager()
 
 
 class Comment (models.Model):
