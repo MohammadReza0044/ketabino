@@ -1,6 +1,7 @@
 {% extends 'book/base.html' %}
 {% load static %}
 
+{% block title %}  فروشگاه کتابینو | همه ی  کتاب ها{% endblock %}
 {% block main %}    
         <!-- Start Product Area -->
         <section id="product" class="product-area pt-100 pb-70">
@@ -9,7 +10,7 @@
                     <h2>همه ی کتاب ها</h2>
                 </div>
                 <div class="row">
-                    {% for b in page_obj %}
+                    {% for b in books %}
                     <div class="col-lg-4 col-md-6">
                         <div class="single-products-box">
                             <div class="products-image">

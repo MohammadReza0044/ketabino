@@ -1,32 +1,28 @@
-from django.shortcuts import render , get_object_or_404
-from django.core.paginator import Paginator
-from .models import Book 
+from django.shortcuts import render , get_object_or_404 , get_list_or_404
+from django.views.generic import ListView , DetailView
+from django.contrib import messages
 
+from .models import Book, Comment
+from .forms import CommentForm
 
 
 def index (request):
     context = {
         "books": Book.objects.actived(),
-        "new_book": Book.objects.actived()[:1]
+        "new_book": Book.objects.actived().latest()
     }
     return render (request , 'book/index.html', context)
 
 
-def book_detail (request, slug):
-    context = {
-        "book": Book.objects.filter(slug=slug)
-    }
-    print(context)
-    return render (request , 'book/book_detail.html', context)
+class BookList(ListView):
+    queryset = Book.objects.actived()
+    template_name = 'book/book_list_view.html'
+    context_object_name = 'books'
+    paginate_by = 6
 
 
-def book_list_view (request):
-    books = Book.objects.actived()
-    paginator = Paginator(books, 6) # Show 6 contacts per page.
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    context = {'page_obj': page_obj}
-    return render (request , 'book/book_list_view.html', context)
-
-
-  
+class BookDetail(DetailView):
+    def get_object(self):
+        slug = self.kwargs.get('slug')
+        return get_object_or_404 (Book.objects.actived(), slug =slug)
+    

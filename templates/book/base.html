@@ -27,7 +27,7 @@
         <!-- RTL CSS -->
         <link rel="stylesheet" href="{% static 'css/rtl.css' %}">
 
-        <title>Zebu - Multipurpose Landing Page HTML Template</title>
+        <title>{% block title %}  {% endblock %}</title>
 
         <link rel="icon" type="image/png" href="assets/img/favicon.png">
     </head>
@@ -100,42 +100,23 @@
                             </a>
                         </li>
                     </ul>
-
-                    <div class="others-option">
-                        <div class="d-flex align-items-center">
-                            <div class="option-item">
-                                <ul class="social-icon">
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class="lab la-twitter"></i>
-                                        </a>
-                                    </li>
-                
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class="lab la-instagram"></i>
-                                        </a>
-                                    </li>
-                
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class="lab la-facebook-f"></i>
-                                        </a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class="lab la-linkedin-in"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </nav>
         <!-- End Navbar Area -->
+        <div class="col-lg-6" style="margin-right: 100px;">
+            <div class="newsletter-form-content" >
+                <form class="newsletter-form" style="margin-left: 10px;">
+                    <input type="text" class="input-newsletter" placeholder="نام کتاب، نام نویسنده" name="search">
+                    <button type="submit">
+                        جستوجو
+                    </button>
+                    
+                    <div id="validator-newsletter" class="form-result"></div>
+                </form>
+            </div>
+        </div>
 
         {% block main %}
 
@@ -146,6 +127,21 @@
             <i class="las la-long-arrow-alt-up"></i>
         </div>
         <!-- End Go Top Area -->
+        <!-- Start Copy Right Area -->
+        <div class="copy-right">
+            <div class="container">
+                <div class="copy-right-content">
+                    <p>
+                        Copyright © 2021 Zebu. All Rights Reserved by
+                        <a href="https://hibootstrap.com" target="_blank">
+                            Hibootsrap
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- End Copy Right Area -->
+
 
 
         <!-- jQuery Min JS -->

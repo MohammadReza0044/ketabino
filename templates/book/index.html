@@ -1,22 +1,24 @@
  {% extends 'book/base.html' %}
  {% load static %}
 
+ {% block title %} فروشگاه کتابینو | خانه {% endblock %}
  {% block main %}
+ 
+ <br><br>
  <!-- Start Book Banner Area -->
- <div id="home" class="book-banner-area">
-    {% for b in new_book %}
+ <div id="home" class="book-banner-area">   
     <div class="d-table">
         <div class="d-table-cell">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="main-banner-content">
-                            <span> {{b.author}}</span>
-                            <h1>{{b.name}}</h1>
-                            <p>{{b.description|truncatewords:40}}</p>
+                            <span> {{new_book.author}}</span>
+                            <h1>{{new_book.name}}</h1>
+                            <p>{{new_book.description|truncatewords:40}}</p>
 
                             <div class="banner-btn">
-                                <a href="{% url 'Book:book_detail' b.slug %}" class="default-btn">
+                                <a href="{% url 'Book:book_detail' new_book.slug %}" class="default-btn">
                                     جزیات بیشتر
                                     <span></span>
                                 </a>
@@ -26,17 +28,17 @@
 
                     <div class="col-lg-6">
                         <div class="banner-image">
-                            <img src="{{b.image.url}}" alt="{{b.slug}}">
+                            <img src="{{new_book.image.url}}" alt="{{b.slug}}">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    {% endfor %}
+    
 </div>
 <!-- End Book Banner Area -->
-
+<br><br><br>
 <!-- Start Book Area -->
 <section class="book-area ptb-100">
     <div class="container">
