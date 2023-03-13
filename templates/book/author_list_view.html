@@ -1,0 +1,59 @@
+{% extends 'book/base.html' %}
+{% load static %}
+
+{% block title %}  فروشگاه کتابینو | نویسندگان{% endblock %}
+{% block main %}    
+
+<!-- Start Product Area -->
+<section id="product" class="product-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2> نویسندگان </h2>
+        </div>
+        <div class="row">
+            {% for a in authors %}
+            <div class="col-lg-4 col-md-6">
+                <div class="single-products-box">
+                    <div class="products-image">
+                        <a href="{% url 'Book:author_detail' a.slug %}">
+                            <img src="{{a.picture.url}}" alt="{{a.slug}}">
+                        </a>
+                    </div>
+
+                    <div class="products-content">
+                        <h3><a href="{% url 'Book:author_detail' a.slug %}">{{a.name}}</a></h3>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!--Pagination-->
+    <section class="articles-pagination">
+
+        <div class="container p-4 ">
+            <div class="pagination justify-content-center">
+                <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">اولین|</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+                {% endif %}
+
+                    <span class="current">
+                        صفحه  {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}
+                    </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">بعدی</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}"> | آخرین</a>
+                {% endif %}
+                </span>
+            </div>
+        </div>
+
+        </section>
+        <!--end of Pagination-->
+
+</section>
+<!-- End Product Area -->
+{% endblock %}

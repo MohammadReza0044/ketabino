@@ -26,6 +26,7 @@
         <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
         <!-- RTL CSS -->
         <link rel="stylesheet" href="{% static 'css/rtl.css' %}">
+        
 
         <title>{% block title %}  {% endblock %}</title>
 
@@ -71,52 +72,44 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#reviews " class="nav-link">
-                                Reviews
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#pricing" class="nav-link">
-                                Pricing
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#author" class="nav-link">
-                                Author
+                            <a href="{% url 'Book:author_list' %}" class="nav-link">
+                                نویسندگان
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a href="#blog" class="nav-link">
-                                Blog
+                                بلاگ
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#contact" class="nav-link">
-                                Contact
+                            <a href="{% url 'Book:contact_us' %}" class="nav-link">
+                                تماس با ما
                             </a>
                         </li>
                     </ul>
-                    
                 </div>
             </div>
         </nav>
         <!-- End Navbar Area -->
-        <div class="col-lg-6" style="margin-right: 100px;">
-            <div class="newsletter-form-content" >
-                <form class="newsletter-form" style="margin-left: 10px;">
-                    <input type="text" class="input-newsletter" placeholder="نام کتاب، نام نویسنده" name="search">
-                    <button type="submit">
-                        جستوجو
-                    </button>
-                    
-                    <div id="validator-newsletter" class="form-result"></div>
-                </form>
-            </div>
+
+        <!-- Start search box Area -->
+        <div class="col-lg-4 col-md-12">
+            <aside class="widget-area" id="secondary" >
+                <section class="widget widget_search" >
+                    <form class="search-form search-top">
+                        <label>
+                            <span class="screen-reader-text">Search for:</span>
+                            <input type="search" class="search-field" placeholder="نام کتاب، نام نویسنده">
+                        </label class="">
+                        <button type="submit">
+                            <i class="las la-search"></i>
+                        </button>
+                    </form>
+                </section>
         </div>
+        <!-- End search box Area -->
 
         {% block main %}
 
@@ -136,6 +129,7 @@
                         <a href="https://hibootstrap.com" target="_blank">
                             Hibootsrap
                         </a>
+                        
                     </p>
                 </div>
             </div>
@@ -165,8 +159,9 @@
 		<!-- Form Validator JS -->
 		<script src="{% static 'js/form-validator.min.js' %}"></script>
 		<!-- Contact JS -->
-        <script src="{% static 'js/contact-form-script.js' %}"></script>
+        <!-- <script src="{% static 'js/contact-form-script.js' %}"></script> -->
         <!-- Main JS -->
         <script src="{% static 'js/main.js' %}"></script>
+        
     </body>
 </html>

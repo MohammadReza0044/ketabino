@@ -49,32 +49,24 @@
         <div class="book-slider owl-carousel owl-theme">
             {% for b in books %}
             <div class="book-item">
+                <a href="{% url 'Book:book_detail' b.slug %}"></a>
                 <div class="image">
-                    <a href="#">
-                        <img src="{{b.image.url}}" alt="{{b.slug}}">
-                    </a>
-                    <div class="icon">
-                        <a href="{% url 'Book:book_detail' b.slug %}" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                            <i class="las la-eye"></i>
+                    <img src="{{b.image.url}}" alt="{{b.slug}}">
+                    <br> <br>
+                    <div class="banner-btn">
+                        <a href="{% url 'Book:book_detail' b.slug %}" class="default-btn">
+                            جزیات بیشتر
+                            <span></span>
                         </a>
                     </div>
+
                 </div>
             </div>
             {% endfor %}
-
-
         </div>
     </div>
 </section>
 <!-- End Book Area -->
-
-
-
-
-
-
-
-
 
 <!-- Start Newsletter Area -->
 <div class="newsletter-area ptb-100">
@@ -111,6 +103,7 @@
   <!-- Start QuickView Modal Area -->
   <div class="modal fade productsQuickView" id="productsQuickView" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
+        {% for qbook in books %}
         <div class="modal-content">
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"><i class="las la-times"></i></span>
@@ -119,13 +112,13 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="products-image">
                         
-                        <img src="{{book.image.url}}" alt="image">
+                        <img src="#" alt="image">
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-6">
                     <div class="product-content">
-                        <h3>{{i.title}}</h3>
+                        <h3>{{qbook.name}}</h3>
                         <div class="price">
                             <span class="new-price">{{i.price}}</span>
                             <span class="old-price">{{i.price}}</span>
@@ -172,7 +165,7 @@
                                 <a href="#" class="btn btn-light">Buy it now!</a>
                             </div>
                         </div>
-                    
+                    {% endfor %}
 
                         <div class="products-share">
                             <ul class="social">

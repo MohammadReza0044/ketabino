@@ -1,53 +1,73 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}   فروشگاه کتابینو  | تماس با ما{{author.name}}{% endblock %}
+{% block main %}    
+
 <!-- Start Contact Area -->
+    {% if messages %}
+        {% for message in messages %}
+         <div class="text-center alert alert-{{ message.tags }}">
+             {{ message|safe }}
+         </div>
+        {% endfor %}
+    {% endif %}
 <section id="contact" class="contact-area ptb-100">
     <div class="container">
         <div class="section-title">
-            <h2>Get In Touch With Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>فرم تماس با ما</h2>
+            <p>جهت تماس با ما، لطفا فرم زیر را پر فرمایید تا در اسرع وقت با شما تماس گرفته شود</p>
         </div>
 
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="contact-image">
-                    <img src="assets/img/book-contact.png" alt="image">
+                    <img src="{% static 'img/book-contact.png' %}" alt="image">
                 </div>
             </div>
 
             <div class="col-lg-6">
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contactForm" method="POST"> {% csrf_token %}
+                        
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <input type="text" name="name" id="name" class="form-control" required data-error="Please enter your name" placeholder="Your Name">
+                                    نام و نام خانوادگی
+                                    {{form.full_name|add_class:'form-control'}}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" class="form-control" required data-error="Please enter your email" placeholder="Your Email">
+                                    آدرس ایمیل
+                                    {{form.email|add_class:'form-control'}}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
 
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <input type="text" name="phone_number" id="phone_number" required data-error="Please enter your number" class="form-control" placeholder="Your Phone">
+                                    تلفن همراه
+                                    {{form.phone_number|add_class:'form-control'}}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
 
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <input type="text" name="msg_subject" id="msg_subject" class="form-control" required data-error="Please enter your subject" placeholder="Your Subject">
+                                    موضوع
+                                    {{form.subject|add_class:'form-control'}}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
 
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <textarea name="message" class="form-control" id="message" cols="30" rows="6" required data-error="Write your message" placeholder="Your Message"></textarea>
+                                    پیغام
+                                    {{form.text|add_class:'form-control'}}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -55,7 +75,7 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="send-btn">
                                     <button type="submit" class="default-btn">
-                                        Send Message
+                                        ارسال پیغام
                                         <span></span>
                                     </button>
                                     <div id="msgSubmit" class="h3 text-center hidden"></div>
@@ -71,3 +91,4 @@
 </section>
 <!-- End Contact Area -->
 
+{% endblock %}

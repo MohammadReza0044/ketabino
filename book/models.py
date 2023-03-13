@@ -1,15 +1,34 @@
 from django.db import models
-
+from django.urls import reverse
 
 class BookManager(models.Manager):
     def actived (self):
         return self.filter(status = 'A')
+    
+
+class AuthorManager(models.Manager):
+    def actived (self):
+        return self.filter(status = True)
+    
 
 class Author(models.Model):
     name = models.CharField(max_length=255)
+    slug = models.CharField(max_length=255)
+    nationality = models.CharField(max_length=255)
+    birth = models.IntegerField()
+    death = models.IntegerField()
+    description = models.TextField()
+    picture = models.ImageField(upload_to='author/image')
+    status = models.BooleanField(default=False)
+
+    class Meta:
+        db_table = 'Author'
+
 
     def __str__(self):
         return self.name
+
+    objects = AuthorManager()
 
 class Publisher(models.Model):
     name = models.CharField(max_length=255)
@@ -34,7 +53,7 @@ class Book (models.Model):
     name = models.CharField(max_length=255)
     slug = models.CharField(max_length=255 , unique=True)
     publisher = models.ForeignKey(Publisher , on_delete=models.CASCADE)
-    author = models.ForeignKey(Author , on_delete=models.CASCADE)
+    author = models.ForeignKey(Author , on_delete=models.CASCADE, related_name='author')
     translator = models.ForeignKey(Translator , on_delete=models.CASCADE)
     code = models.IntegerField(unique=True)
     description = models.TextField()
@@ -71,5 +90,26 @@ class Comment (models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+class Contact(models.Model):
+
+    full_name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone_number = models.IntegerField()
+    subject = models.CharField(max_length=255)
+    text = models.TextField()
+    created_date = models.DateField(auto_now_add=True)
+    
+    class Meta:
+        db_table = 'Contact Us'
+        ordering = ['-created_date']
+
+
+    def __str__(self):
+        return self.full_name
+    
+    def get_absolute_url(self):
+        return reverse('Book:contact_us')
 
 

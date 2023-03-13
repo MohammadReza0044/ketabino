@@ -20,7 +20,7 @@
                             </div>
 
                             <div class="products-content">
-                                <h3><a href="single-product.html">{{b.name}}</a></h3>
+                                <h3><a href="{% url 'Book:book_detail' b.slug %}">{{b.name}}</a></h3>
                                 <div class="price">
                                     <span class="old-price">{{b.price}}</span>
                                     <span class="new-price">{{b.price}}</span>

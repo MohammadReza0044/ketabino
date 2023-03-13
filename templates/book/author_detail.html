@@ -1,0 +1,95 @@
+{% extends 'book/base.html' %}
+{% load static %}
+
+{% block title %}  فروشگاه کتابینو | {{author.name}}{% endblock %}
+{% block main %}    
+
+  <!-- Start Author-detail Area -->
+  <section class="single-blog-area pt-100 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="blog-details-desc">
+                    <div class="article-image">
+                        <img src="{{author.picture.url}}" style="width: 300px;" alt="{{author.slug}}">
+                    </div>
+                    <div class="article-content">
+                        
+                        <h3>{{author.name}}</h3>
+                        <h3>ملیت: {{author.nationality}}</h3>
+                        <h3>سال تولد: {{author.birth}}</h3>
+                        <p>{{author.description|safe|linebreaks}}</p>
+                        
+                    </div>
+
+                    <!-- Start Author-comment Area -->
+                    <div class="comments-area">
+                        <h3 class="comments-title">نظرات</h3>
+                        <ol class="comment-list">
+                            <li class="comment">
+                                <article class="comment-body">
+                                    <footer class="comment-meta">
+                                        <div class="comment-author vcard">
+                                            <img src="assets/img/client/1.jpg" class="avatar" alt="image">
+                                            <b class="fn">John Jones</b>
+                                            <span class="says">says:</span>
+                                        </div>
+                                        <div class="comment-metadata">
+                                            <a href="index.html">
+                                                <time>April 24, 2021 at 10:59 am</time>
+                                            </a>
+                                        </div>
+                                    </footer>
+                                    <div class="comment-content">
+                                        <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
+                                    </div>
+                                    <div class="reply">
+                                        <a href="#" class="comment-reply-link">Reply</a>
+                                    </div>
+                                </article>
+
+                                
+                            </li>
+
+                            
+                        </ol>
+
+                        <div class="comment-respond">
+                            <h3 class="comment-reply-title">Leave a Reply</h3>
+                            <form class="comment-form">
+                                <p class="comment-notes">
+                                    <span id="email-notes">Your email address will not be published.</span>
+                                    Required fields are marked 
+                                    <span class="required">*</span>
+                                </p>
+                                <p class="comment-form-comment">
+                                    <label>Comment</label>
+                                    <textarea name="comment" id="comment" cols="45" rows="5" maxlength="65525" required="required"></textarea>
+                                </p>
+                                <p class="comment-form-author">
+                                    <label>Name <span class="required">*</span></label>
+                                    <input type="text" id="author" name="author" required="required">
+                                </p>
+                                <p class="comment-form-email">
+                                    <label>Email <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" required="required">
+                                </p>
+                                <p class="comment-form-url">
+                                    <label>Website</label>
+                                    <input type="url" id="url" name="url">
+                                </p>
+                                <p class="comment-form-cookies-consent">
+                                    <input type="checkbox" value="yes" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent">
+                                    <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label>
+                                </p>
+                                <p class="form-submit">
+                                    <input type="submit" name="submit" id="submit" class="submit" value="Post A Comment">
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end Author-comment Area -->
+                </div>
+            </div>
+    <!-- end Author-detail Area -->
+{% endblock %}
