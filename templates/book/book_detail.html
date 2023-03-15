@@ -1,5 +1,6 @@
 {% extends 'book/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %} فروشگاه کتابینو | {{book.name}} {% endblock %}
 
@@ -92,7 +93,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="dot"></div> 
-                                        نظرات
+                                        دیدگاه ها
                                     </a>
                                 </li>
                             </ul>
@@ -104,61 +105,40 @@
                                         <p>{{book.description}}</p>
                                     </div>
                                 </div>
-                                
+                            
                                 <div class="tabs_item">
                                     <div class="products-details-tab-content">
                                         <div class="product-review-form">
-                                            
                                             <div class="review-comments">
+                                                {% for comment in book.comments.actived %}
                                                 <div class="review-item">
-                                                    <div class="rating">
-                                                        <i class="las la-star"></i>
-                                                        <i class="las la-star"></i>
-                                                        <i class="las la-star"></i>
-                                                        <i class="las la-star"></i>
-                                                        <i class="lar la-star"></i>
-                                                    </div>
-                                                    <h3>Good</h3>
-                                                    <span><strong>Admin</strong> on <strong>Sep 21, 2021</strong></span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                                    <a href="#" class="review-report-link">Report as Inappropriate</a>
+                                                    <span><strong>{{ comment.name }}</strong> در تاریخ <strong>{{ comment.created_on }}</strong></span>
+                                                    <p>{{ comment.body }}</p>
                                                 </div>
-                                                
+                                            {% endfor %}
                                                 
                                             </div>
+                                            <br><br>
                                             <div class="review-form">
-                                                {% if messages %}
-                                                {% for msg in messages %}
-                                                    <div class="alert alert-success" role="alert">
-                                                         <p> {{msg}}</p>
-                                                     </div>
-                                                {% endfor %}
-                                                {% endif %}
-                                                <br> <br>
-                                                
-                                                <h3>Write a Review</h3>
+                                                <h3> دیدگاه شما در مورد کتاب  {{book.name}}</h3>
                                                 <form  method="POST">
 													{% csrf_token %}
-                                                    {{form.as_p}}
+                                                   
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <input type="text" id="name" name="full_name" placeholder="Enter your name" class="form-control">
+                                                            <div class="form-group">  
+                                                                {{form.name|add_class:'form-control'}}  
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6">
                                                             <div class="form-group">
-                                                                <input type="email" id="email" name="email" placeholder="Enter your email" class="form-control">
+                                                                {{form.email|add_class:'form-control'}}
                                                             </div>
+                                                        </div>
                                                         </div>
                                                         <div class="col-lg-12 col-md-12">
                                                             <div class="form-group">
-                                                                <input type="text" id="review-title" name="comment_title" placeholder="Enter your review a title" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12 col-md-12">
-                                                            <div class="form-group">
-                                                                <textarea name="text" id="review-body" cols="30" rows="7" placeholder="Write your comments here" class="form-control"></textarea>
+                                                                {{form.body|add_class:'form-control'}}
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-12 col-md-12">

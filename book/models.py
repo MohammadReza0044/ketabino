@@ -11,6 +11,11 @@ class AuthorManager(models.Manager):
         return self.filter(status = True)
     
 
+class BookCommentManager(models.Manager):
+    def actived (self):
+        return self.filter(active = True)
+    
+
 class Author(models.Model):
     name = models.CharField(max_length=255)
     slug = models.CharField(max_length=255)
@@ -75,23 +80,6 @@ class Book (models.Model):
     objects = BookManager()
 
 
-class Comment (models.Model):
-    
-    book = models.ForeignKey(Book , on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=255)
-    email = models.EmailField()
-    comment_title = models.CharField(max_length=255)
-    text = models.TextField()
-    date = models.DateField(auto_now=True)
-    status = models.BooleanField(default=False)
-
-    class Meta:
-        ordering = ['-date']
-
-    def __str__(self):
-        return self.full_name
-
-
 class Contact(models.Model):
 
     full_name = models.CharField(max_length=255)
@@ -103,7 +91,7 @@ class Contact(models.Model):
     
     class Meta:
         db_table = 'Contact Us'
-        ordering = ['-created_date']
+        ordering = ['created_date']
 
 
     def __str__(self):
@@ -113,3 +101,20 @@ class Contact(models.Model):
         return reverse('Book:contact_us')
 
 
+class BookComment(models.Model):
+    book = models.ForeignKey(Book,on_delete=models.CASCADE,related_name='comments')
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
+
+    class Meta:
+        db_table = 'Book Comment'
+        ordering = ['created_on']
+    
+    
+    def __str__(self):
+        return self.name
+    
+    objects = BookCommentManager()
