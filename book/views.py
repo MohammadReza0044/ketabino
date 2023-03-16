@@ -1,7 +1,8 @@
 from django.shortcuts import render , get_object_or_404 , redirect
 from django.urls import reverse , reverse_lazy
 from django.views.generic import ListView , DetailView, CreateView, FormView
-from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.messages.views import SuccessMessageMixin 
+from django.contrib import messages
 
 from .models import Book, Author , Contact, BookComment
 from .forms import BookCommentForm, AuthorCommentForm
@@ -37,6 +38,7 @@ class BookDetail(SuccessMessageMixin, DetailView):
 			book = self.get_object()
 			form.instance.book = book
 			form.save()
+			messages.success(self.request, f"دیدگاه شما با موفقیت ثبت شد و پس از تایید، در سایت به نمایش گذاشته خواهد شد.")
 			return redirect (reverse('Book:book_detail' , kwargs={'slug':book.slug}))
 		else:
 			form = BookCommentForm()
@@ -72,6 +74,8 @@ class AuthorDetail(SuccessMessageMixin, DetailView):
 			author = self.get_object()
 			form.instance.author = author
 			form.save()
+			messages.success(self.request, f"دیدگاه شما با موفقیت ثبت شد و پس از تایید، در سایت به نمایش گذاشته خواهد شد.")
+
 			return redirect (reverse('Book:author_detail' , kwargs={'slug':author.slug}))
 		else:
 			form = AuthorCommentForm()
