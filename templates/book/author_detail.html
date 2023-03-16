@@ -1,9 +1,18 @@
 {% extends 'book/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}  فروشگاه کتابینو | {{author.name}}{% endblock %}
 {% block main %}    
 
+
+{% if messages %}
+{% for message in messages %}
+    <div class="text-center alert alert-{{ message.tags }}">
+        {{ message|safe }}
+    </div>
+{% endfor %}
+{% endif %}
   <!-- Start Author-detail Area -->
   <section class="single-blog-area pt-100 pb-100">
     <div class="container">
@@ -14,77 +23,88 @@
                         <img src="{{author.picture.url}}" style="width: 300px;" alt="{{author.slug}}">
                     </div>
                     <div class="article-content">
-                        
                         <h3>{{author.name}}</h3>
                         <h3>ملیت: {{author.nationality}}</h3>
                         <h3>سال تولد: {{author.birth}}</h3>
                         <p>{{author.description|safe|linebreaks}}</p>
-                        
                     </div>
+                    <!-- Start Relatied Book of Author Area -->
+                    <br><br>
+                    <div class="row">
+                        <br> <br>
+                        <h3> کتاب های موجود از {{author.name}}</h3>
+                        {% for book in author.books.actived %}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-products-box">
+                                <div class="products-image">
+                                    <a href="{% url 'Book:book_detail' book.slug %}">
+                                        <img src="{{book.image.url}}" alt="{{book.slug}}">
+                                    </a>
+                                </div>
+            
+                                <div class="products-content">
+                                    <h3><a href="{% url 'Book:book_detail' book.slug %}">{{book.name}}</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- End Relatied Book of Author Area -->
 
                     <!-- Start Author-comment Area -->
                     <div class="comments-area">
-                        <h3 class="comments-title">نظرات</h3>
+                        <h3 class="comments-title">دیدگاه ها</h3>
                         <ol class="comment-list">
                             <li class="comment">
+                                {% for comment in author.comments.actived %}
                                 <article class="comment-body">
                                     <footer class="comment-meta">
                                         <div class="comment-author vcard">
-                                            <img src="assets/img/client/1.jpg" class="avatar" alt="image">
-                                            <b class="fn">John Jones</b>
-                                            <span class="says">says:</span>
+                                            <b class="fn">{{comment.name}}</b>
                                         </div>
                                         <div class="comment-metadata">
-                                            <a href="index.html">
-                                                <time>April 24, 2021 at 10:59 am</time>
-                                            </a>
+                                            <time>{{ comment.created_on }}</time>
                                         </div>
                                     </footer>
                                     <div class="comment-content">
-                                        <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
-                                    </div>
-                                    <div class="reply">
-                                        <a href="#" class="comment-reply-link">Reply</a>
+                                        <p>{{ comment.body }}</p>
                                     </div>
                                 </article>
-
-                                
-                            </li>
-
-                            
+                                {% endfor %}    
+                            </li>  
                         </ol>
-
-                        <div class="comment-respond">
-                            <h3 class="comment-reply-title">Leave a Reply</h3>
-                            <form class="comment-form">
-                                <p class="comment-notes">
-                                    <span id="email-notes">Your email address will not be published.</span>
-                                    Required fields are marked 
-                                    <span class="required">*</span>
-                                </p>
-                                <p class="comment-form-comment">
-                                    <label>Comment</label>
-                                    <textarea name="comment" id="comment" cols="45" rows="5" maxlength="65525" required="required"></textarea>
-                                </p>
-                                <p class="comment-form-author">
-                                    <label>Name <span class="required">*</span></label>
-                                    <input type="text" id="author" name="author" required="required">
-                                </p>
-                                <p class="comment-form-email">
-                                    <label>Email <span class="required">*</span></label>
-                                    <input type="email" id="email" name="email" required="required">
-                                </p>
-                                <p class="comment-form-url">
-                                    <label>Website</label>
-                                    <input type="url" id="url" name="url">
-                                </p>
-                                <p class="comment-form-cookies-consent">
-                                    <input type="checkbox" value="yes" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent">
-                                    <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label>
-                                </p>
-                                <p class="form-submit">
-                                    <input type="submit" name="submit" id="submit" class="submit" value="Post A Comment">
-                                </p>
+                    
+                        <br><br>
+                        <div class="review-form">
+                            <br><br>
+                            <h3> دیدگاه شما در مورد کتاب  {{author.name}}</h3>
+                            <form  method="POST">
+                                {% csrf_token %}
+                               
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">  
+                                            {{form.name|add_class:'form-control'}}  
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            {{form.email|add_class:'form-control'}}
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            {{form.body|add_class:'form-control'}}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <button type="submit" class="default-btn">
+                                           ارسال دیدگاه
+                                            <span></span>
+                                        </button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>

@@ -16,6 +16,11 @@ class BookCommentManager(models.Manager):
         return self.filter(active = True)
     
 
+class AuthorCommentManager(models.Manager):
+    def actived (self):
+        return self.filter(active = True)
+    
+
 class Author(models.Model):
     name = models.CharField(max_length=255)
     slug = models.CharField(max_length=255)
@@ -35,17 +40,22 @@ class Author(models.Model):
 
     objects = AuthorManager()
 
+
+
 class Publisher(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
 
+
+
 class Translator(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
+
 
 
 class Book (models.Model):
@@ -58,7 +68,7 @@ class Book (models.Model):
     name = models.CharField(max_length=255)
     slug = models.CharField(max_length=255 , unique=True)
     publisher = models.ForeignKey(Publisher , on_delete=models.CASCADE)
-    author = models.ForeignKey(Author , on_delete=models.CASCADE, related_name='author')
+    author = models.ForeignKey(Author , on_delete=models.CASCADE, related_name='books')
     translator = models.ForeignKey(Translator , on_delete=models.CASCADE)
     code = models.IntegerField(unique=True)
     description = models.TextField()
@@ -118,3 +128,23 @@ class BookComment(models.Model):
         return self.name
     
     objects = BookCommentManager()
+
+
+
+class AuthorComment(models.Model):
+    author = models.ForeignKey(Author,on_delete=models.CASCADE,related_name='comments')
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
+
+    class Meta:
+        db_table = 'Author Comment'
+        ordering = ['created_on']
+    
+    
+    def __str__(self):
+        return self.name
+    
+    objects = AuthorCommentManager()
