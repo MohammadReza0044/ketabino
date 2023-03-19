@@ -70,6 +70,8 @@
                                         <p>{{ comment.body }}</p>
                                     </div>
                                 </article>
+                                {% empty %}
+                                <p> اولین دیدگاه را شما وارد کنید </p>
                                 {% endfor %}    
                             </li>  
                         </ol>

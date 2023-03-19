@@ -98,10 +98,10 @@
         <div class="col-lg-4 col-md-12">
             <aside class="widget-area" id="secondary" >
                 <section class="widget widget_search" >
-                    <form class="search-form search-top">
+                    <form class="search-form search-top" action="{% url 'Book:search' %}">
                         <label>
                             <span class="screen-reader-text">Search for:</span>
-                            <input type="search" class="search-field" placeholder="نام کتاب، نام نویسنده">
+                            <input type="text" name="q" class="search-field" placeholder="نام کتاب، نام نویسنده">
                         </label class="">
                         <button type="submit">
                             <i class="las la-search"></i>

@@ -1,0 +1,67 @@
+{% extends 'book/base.html' %}
+{% load static %}
+
+{% block title %}  فروشگاه کتابینو | همه ی  کتاب ها{% endblock %}
+{% block main %}  
+
+
+        <!-- Start Product Area -->
+        <section id="product" class="product-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title">
+                    <h3>جستوجو   «{{search}}»</h3>
+                </div>
+                <div class="row">
+                    {% for b in object_list %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-products-box">
+                            <div class="products-image">
+                                <a href="{% url 'Book:book_detail' b.slug %}">
+                                    <img src="{{b.image.url}}" alt="{{b.slug}}">
+                                </a>
+                            </div>
+
+                            <div class="products-content">
+                                <h3><a href="{% url 'Book:book_detail' b.slug %}">{{b.name}}</a></h3>
+                                <div class="price">
+                                    <span class="old-price">{{b.price}}</span>
+                                    <span class="new-price">{{b.price}}</span>
+                                </div>
+                                <a href="{% url 'Book:book_detail' b.slug %}" class="add-to-cart">جزیات بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <h4> نتیجه ای پیدا نشد </h4>
+                    {% endfor %}
+                </div>
+            </div>
+            <!--Pagination-->
+            <section class="articles-pagination">
+  
+                <div class="container p-4 ">
+                    <div class="pagination justify-content-center">
+                        <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1">اولین|</a>
+                            <a href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+                        {% endif %}
+    
+                            <span class="current">
+                                صفحه  {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}
+                            </span>
+    
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}">بعدی</a>
+                            <a href="?page={{ page_obj.paginator.num_pages }}"> | آخرین</a>
+                        {% endif %}
+                        </span>
+                    </div>
+                </div>
+    
+                </section>
+                <!--end of Pagination-->
+    
+        </section>
+        <!-- End Product Area -->
+{% endblock %}

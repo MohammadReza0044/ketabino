@@ -44,6 +44,7 @@
                         <span class="old-price">{{book.price}}</span>
                     </div>
                     <div class="product-review">
+                        <p> نویسنده: {{book.author}}  </p>
                         <p> انتشارات: {{book.publisher}}  </p>
                         <p> مترجم: {{book.translator}}  </p>
                         <p> تاریخ انتشار کتاب به میلادی: {{book.published_date}}  </p>
@@ -122,6 +123,8 @@
                                                     <span><strong>{{ comment.name }}</strong> در تاریخ <strong>{{ comment.created_on }}</strong></span>
                                                     <p>{{ comment.body }}</p>
                                                 </div>
+                                                {% empty %}
+                                                <p> اولین دیدگاه را شما وارد کنید </p>
                                             {% endfor %}
                                                 
                                             </div>
