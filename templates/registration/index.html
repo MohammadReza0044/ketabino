@@ -1,0 +1,177 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+
+{% block title %} صفحه ی اصلی {% endblock %}
+{% block main %}
+<section class="content container-fluid">
+
+  
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">آخرین سفارشات</h3>
+
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <div class="table-responsive">
+        <table class="table no-margin">
+          <thead>
+          <tr>
+            <th>شماره</th>
+            <th>محصول</th>
+            <th>وضعیت</th>
+            <th>رضایت مشتری</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><a href="pages/examples/invoice.html">OR9842</a></td>
+            <td>آیفون ۵</td>
+            <td><span class="label label-success">ارسال شده</span></td>
+            <td>
+              <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">OR1848</a></td>
+            <td>سامسونگ ۶</td>
+            <td><span class="label label-warning">در انتظار</span></td>
+            <td>
+              <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">OR7429</a></td>
+            <td>آیفون ۶</td>
+            <td><span class="label label-danger">پرداخت شده</span></td>
+            <td>
+              <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">OR7429</a></td>
+            <td>لپ تاپ ایسوز</td>
+            <td><span class="label label-info">در حال پردازش</span></td>
+            <td>
+              <div class="sparkbar" data-color="#00c0ef" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">OR1848</a></td>
+            <td>مک بوک ایر</td>
+            <td><span class="label label-warning">در انتظار</span></td>
+            <td>
+              <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">OR7429</a></td>
+            <td>سونی اکسپریا</td>
+            <td><span class="label label-danger">پرداخت شده</span></td>
+            <td>
+              <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">OR9842</a></td>
+            <td>ماوس اپتیکال</td>
+            <td><span class="label label-success">ارسال شده</span></td>
+            <td>
+              <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.table-responsive -->
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer clearfix">
+      <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">سفارش جدید</a>
+      <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">نمایش همه</a>
+    </div>
+    <!-- /.box-footer -->
+  </div>
+
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">آخرین محصولات</h3>
+
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <ul class="products-list product-list-in-box">
+        <li class="item">
+          <div class="product-img">
+            <img src="{% static 'registration/dist/img/default-50x50.gif' %}" alt="Product Image">
+          </div>
+          <div class="product-info">
+            <a href="javascript:void(0)" class="product-title">آیفون ۵ اس
+              <span class="label label-warning pull-left">$1800</span></a>
+            <span class="product-description">
+                  گوشی اپل
+                </span>
+          </div>
+        </li>
+        <!-- /.item -->
+        <li class="item">
+          <div class="product-img">
+            <img src="{% static 'registration/dist/img/default-50x50.gif' %}" alt="Product Image">
+          </div>
+          <div class="product-info">
+            <a href="javascript:void(0)" class="product-title">دوچرخه کوهستان
+              <span class="label label-info pull-left">$700</span></a>
+            <span class="product-description">
+                  دوچرخه حرفه ای و زیبا
+                </span>
+          </div>
+        </li>
+        <!-- /.item -->
+        <li class="item">
+          <div class="product-img">
+            <img src="{% static 'registration/dist/img/default-50x50.gif' %}" alt="Product Image">
+          </div>
+          <div class="product-info">
+            <a href="javascript:void(0)" class="product-title">کنسول مایکروسافت <span class="label label-danger pull-left">$350</span></a>
+            <span class="product-description">
+                  کنسول بازی حرفه ای و قوی
+                </span>
+          </div>
+        </li>
+        <!-- /.item -->
+        <li class="item">
+          <div class="product-img">
+            <img src="{% static 'registration/dist/img/default-50x50.gif' %}" alt="Product Image">
+          </div>
+          <div class="product-info">
+            <a href="javascript:void(0)" class="product-title">لپ تاپ ایسر
+              <span class="label label-success pull-left">$399</span></a>
+            <span class="product-description">
+                  لپ تاپ اقتصادی
+                </span>
+          </div>
+        </li>
+        <!-- /.item -->
+      </ul>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer text-center">
+      <a href="javascript:void(0)" class="uppercase">نمایش همه</a>
+    </div>
+    <!-- /.box-footer -->
+  </div>
+
+  </section>
+
+
+{% endblock %}

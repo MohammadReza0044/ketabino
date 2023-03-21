@@ -1,6 +1,6 @@
 from django.shortcuts import render , get_object_or_404 , redirect
 from django.urls import reverse , reverse_lazy
-from django.views.generic import ListView , DetailView, CreateView, FormView
+from django.views.generic import ListView , DetailView, CreateView
 from django.contrib.messages.views import SuccessMessageMixin 
 from django.contrib import messages
 from django.db.models import Q

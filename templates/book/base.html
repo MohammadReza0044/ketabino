@@ -5,6 +5,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
 
         <!-- Bootstrap Min CSS -->
         <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
@@ -26,6 +27,7 @@
         <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
         <!-- RTL CSS -->
         <link rel="stylesheet" href="{% static 'css/rtl.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
 
         <title>{% block title %}  {% endblock %}</title>
@@ -89,8 +91,45 @@
                             </a>
                         </li>
                     </ul>
+                    <div class="others-option">
+                        <div class="d-flex align-items-center">
+                            <div class="option-item">
+                                <ul class="social-icon">
+                                    {% if user.is_superuser %}
+                                    <li>
+                                        <a href="{% url 'Account:dashboard' %}" target="_blank" title="ادمین پنل">
+                                            <i class="fa fa-dashboard"></i>
+                                        </a>
+                                    </li> 
+                                    {% endif %}
+                                    {% if not user.is_authenticated %}
+                                    <li>
+                                        <a href="{% url 'Account:login' %}" title="ورود کاربر">
+                                            <i class="fa fa-sign-in"></i>
+                                        </a>
+                                    </li>
+                                    {% else %}
+                                    <li>
+                                        <a href="{% url 'Account:logout' %}" title="خروج کاربر">
+                                            <i class='fa fa-power-off'></i>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                    <li>
+                                        <a href="#" target="_blank" title="سبد خرید">
+                                            <i class='fa fa-cart-arrow-down'></i>
+                                        </a>
+                                    </li>
+                                    {% if user.is_authenticated %}
+                                    <p>خوش آمدید{{user.get_full_name}}</p>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
         </nav>
         <!-- End Navbar Area -->
 
@@ -162,6 +201,7 @@
         <!-- <script src="{% static 'js/contact-form-script.js' %}"></script> -->
         <!-- Main JS -->
         <script src="{% static 'js/main.js' %}"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         
     </body>
 </html>

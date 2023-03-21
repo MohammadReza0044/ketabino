@@ -61,7 +61,7 @@ desired effect
   <!-- Main Header -->
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="{% url 'Account:dashboard' %}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">پنل</span>
       <!-- logo for regular state and mobile devices -->
@@ -73,38 +73,24 @@ desired effect
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
+      <a class="btn btn-info" style="padding: 15px;" href="{% url 'Book:index' %} " target="_blank">نمایش سایت</a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{% static 'registration/dist/img/user2-160x160.jpg' %}" class="user-image" alt="User Image">
-              <span class="hidden-xs">علیرضا حسینی زاده</span>
+              <span class="hidden-xs">{{user.get_full_name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{% static 'registration/dist/img/user2-160x160.jpg' %}" class="img-circle" alt="User Image">
-
                 <p>
-                  علیرضا حسینی زاده
+                 {{user.get_full_name}}
                   <small>مدیریت کل سایت</small>
                 </p>
               </li>
               <!-- Menu Body -->
               <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">صفحه من</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">فروش</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">دوستان</a>
-                  </div>
-                </div>
                 <!-- /.row -->
               </li>
               <!-- Menu Footer-->
@@ -117,10 +103,6 @@ desired effect
                 </div>
               </li>
             </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
@@ -135,12 +117,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-right image">
-          <img src="{% static 'registration/dist/img/user2-160x160.jpg' %}" class="img-circle" alt="User Image">
+          <img src="{% static 'registration/dist/img/profile.jpg' %}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-right info">
-          <p>علیرضا حسینی زاده</p>
-          <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a>
+          <p>{{user.get_full_name}}</p>
         </div>
       </div>
 
@@ -158,21 +138,71 @@ desired effect
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">تیتر</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>لینک</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>لینک ۲</span></a></li>
+        <li><a href="{% url 'Account:dashboard' %}"><i class="fa fa-home"></i> <span>خانه</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>لیست فروش</span></a></li>
+        
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>چند سطحی</span>
+          <a href="#"><i class="fa fa-book"></i> <span>کتاب ها</span>
             <span class="pull-left-container">
-                <i class="fa fa-angle-right pull-left"></i>
-              </span>
+              <i class="fa fa-angle-right pull-left"></i>
+            </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">لینک سطح ۱</a></li>
-            <li><a href="#">لینک سطح ۱</a></li>
+            <li><a href="{% url 'Account:book_list' %}"> لیست کتاب ها</a></li>
+            <li><a href="{% url 'Account:book_create' %}"> اضافه کردن کتاب جدید</a></li>
           </ul>
         </li>
+
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>نویسندگان </span>
+            <span class="pull-left-container">
+              <i class="fa fa-angle-right pull-left"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'Account:author_list' %}"> لیست نویسندگان </a></li>
+            <li><a href="{% url 'Account:author_create' %}"> اضافه کردن نویسنده جدید</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>مترجم ها</span>
+            <span class="pull-left-container">
+              <i class="fa fa-angle-right pull-left"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'Account:translator_list' %}"> لیست مترجم ها</a></li>
+            <li><a href="{% url 'Account:translator_create' %}"> اضافه کردن مترجم جدید</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span> ناشران</span>
+            <span class="pull-left-container">
+              <i class="fa fa-angle-right pull-left"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'Account:publisher_list' %}"> لیست ناشران </a></li>
+        <li><a href="{% url 'Account:publisher_create' %}"> اضافه کردن ناشر جدید</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>دیدگاه ها</span>
+            <span class="pull-left-container">
+              <i class="fa fa-angle-right pull-left"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'Account:book-comments_list' %}"> دیدگاه کتاب ها</a></li>
+            <li><a href="{% url 'Account:author-comments_list' %}"> دیدگاه نویسندگان</a></li>
+          </ul>
+        </li>
+
+        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>کاربران</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -204,83 +234,7 @@ desired effect
     <strong>Copyleft &copy; 2014-2017 <a href="https://adminlte.io">Almsaeed Studio</a> & <a href="http://hosseinizadeh.ir/adminlte">Alireza Hosseinizadeh</a></strong>
   </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane active" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">فعالیت ها</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:;">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">تولد غلوم</h4>
-
-                <p>۲۴ مرداد</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <h3 class="control-sidebar-heading">پیشرفت کارها</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:;">
-              <h4 class="control-sidebar-subheading">
-                آپدیت لاراول
-                <span class="pull-left-container">
-                    <span class="label label-danger pull-left">70%</span>
-                  </span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">تب وضعیت</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">تنظیمات عمومی</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              گزارش کنترلر پنل
-              <input type="checkbox" class="pull-left" checked>
-            </label>
-
-            <p>
-              ثبت تمامی فعالیت های مدیران
-            </p>
-          </div>
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-  immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
