@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from ckeditor.fields import RichTextField
+
 
 class BookManager(models.Manager):
     def actived (self):
@@ -27,7 +29,7 @@ class Author(models.Model):
     nationality = models.CharField(max_length=255)
     birth = models.IntegerField()
     death = models.IntegerField()
-    description = models.TextField()
+    description = RichTextField()
     picture = models.ImageField(upload_to='author/image')
     status = models.BooleanField(default=False)
 
@@ -71,11 +73,11 @@ class Book (models.Model):
     author = models.ForeignKey(Author , on_delete=models.CASCADE, related_name='books')
     translator = models.ForeignKey(Translator , on_delete=models.CASCADE)
     code = models.IntegerField(unique=True)
-    description = models.TextField()
+    description = RichTextField()
     pages = models.IntegerField()
     published_date = models.IntegerField()
     status = models.CharField(max_length=1 , choices=STATUS_CHOICES)
-    active_date = models.DateField(auto_now=True)
+    active_date = models.DateField(auto_now_add=True)
     image = models.ImageField(upload_to='image')
     price = models.IntegerField()
 
