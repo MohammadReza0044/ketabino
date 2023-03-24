@@ -120,10 +120,11 @@ class BookComment(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
+    is_read = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'Book Comment'
-        ordering = ['created_on']
+        ordering = ['-created_on']
     
     
     def __str__(self):
@@ -140,10 +141,11 @@ class AuthorComment(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
+    is_read = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'Author Comment'
-        ordering = ['created_on']
+        ordering = ['-created_on']
     
     
     def __str__(self):

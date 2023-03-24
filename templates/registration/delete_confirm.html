@@ -1,0 +1,22 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+
+{% block title %} حذف دیدگاه  {% endblock %}
+{% block main %}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-body">
+            <form method="post">{% csrf_token %}
+                <p>آیا از حذف دیدگاه  "{{ object }}" اطمینان دارید ؟</p>
+                {{ form }}
+                <input type="submit"  value="تایید">
+            </form>
+        </div>
+ 
+    </div>
+    <!-- /.modal-content -->
+  </div>
+
+{% endblock %}

@@ -34,6 +34,12 @@ urlpatterns += [
     path('admin-dashboard/translator-update/<int:pk>', views.TranslatorUpdate.as_view() , name='translator_update'),
     path('admin-dashboard/book-comments', views.BookCommentDashboard.as_view() , name='book-comments_list'),
     path('admin-dashboard/author-comments', views.AuthorCommentDashboard.as_view() , name='author-comments_list'),
+    path('admin-dashboard/book-comment/<int:pk>', views.BookCommentDetail.as_view() , name='book_comment_detail'),
+    path('admin-dashboard/author-comment/<int:pk>', views.AuthorCommentDetail.as_view() , name='author_comment_detail'),
+    path('admin-dashboard/book-comment_delete/<int:pk>', views.BookCommentDelete.as_view() , name='book_comment_delete'),
+    path('admin-dashboard/author-comment_delete/<int:pk>', views.AuthorCommentDelete.as_view() , name='author_comment_delete'),
+    path('admin-dashboard/book-comment_active/<int:pk>', views.BookCommentActive.as_view() , name='book_comment_active'),
+    path('admin-dashboard/author-comment_active/<int:pk>', views.AuthorCommentActive.as_view() , name='author_comment_active'),
 
 
 

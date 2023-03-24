@@ -1,0 +1,24 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+
+{% block title %} تایید دیدگاه  {% endblock %}
+{% block main %}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-body">
+            <form method="post">{% csrf_token %}
+                <label>آیا دیدگاه تایید شود؟ </label> &nbsp&nbsp {{ form.active }}
+                <hr>
+                <label>آیا دیدگاه خوانده شود؟ </label> &nbsp&nbsp {{ form.is_read }}
+                <hr>
+                <input type="submit"  value="تایید">
+            </form>
+        </div>
+ 
+    </div>
+    <!-- /.modal-content -->
+  </div>
+
+{% endblock %}

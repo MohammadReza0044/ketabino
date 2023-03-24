@@ -1,0 +1,41 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+
+{% block title %} دیدگاه درمورد کتاب: {{object.book}} {% endblock %}
+{% block main %}
+
+<br><br>
+<div class="col-md-12">
+    <!-- The time line -->
+    <ul class="timeline">
+      <!-- timeline time label -->
+      <li class="time-label">
+            <span class="bg-red">
+              {{object.created_on.date}}
+            </span>
+      </li>
+      <!-- /.timeline-label -->
+      <!-- timeline item -->
+      <li>
+        <i class="fa fa-comments bg-yellow"></i>
+
+        <div class="timeline-item">
+          <span class="time"><i class="fa fa-clock-o"></i> {{object.created_on.time}}</span>
+
+          <h3 class="timeline-header">{{object.name}} </h3>
+
+            <div class="timeline-body">
+                {{object.body}}
+            </div>
+          <div class="timeline-footer">
+            <a class="btn btn-success btn-xs" href="{% url 'Account:book_comment_active' object.pk %}">تایید یا عدم تایید</a>
+            <a class="btn btn-danger btn-xs" href="{% url 'Account:book_comment_delete' object.pk %}">حذف</a>
+          </div>
+        </div>
+      </li>
+      <!-- END timeline item -->
+      <!-- timeline item -->
+    </ul>
+  </div>
+
+{% endblock %}

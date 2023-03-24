@@ -32,7 +32,7 @@
 
         <title>{% block title %}  {% endblock %}</title>
 
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="{% static '/img/favicon.png' %}">
     </head>
 
     <body data-spy="scroll" data-offset="120">
@@ -112,6 +112,11 @@
                                     <li>
                                         <a href="{% url 'Account:logout' %}" title="خروج کاربر">
                                             <i class='fa fa-power-off'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'Account:login' %}" title="پروفایل کاربری">
+                                            <i class="fa fa fa-user"></i>
                                         </a>
                                     </li>
                                     {% endif %}
