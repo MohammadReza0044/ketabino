@@ -38,7 +38,7 @@
                         <td>{{comment.book}}</td>
                         <td> {{comment.name}}</td>
                         <td>{{comment.email}}</td>
-                        <td>{{comment.created_on}} </td>
+                        <td>{{comment.jpublish}} </td>
                         {% if comment.active == False %}<td  class="tp-3 mb-2 bg-danger text-white">تایید نشده <i class="fa fa-close"></i></td>{% else %}
                         <td class="p-3 mb-2 bg-success text-white">تایید شده <i class="fa fa-check"></i></td>{% endif %}
                         {% if comment.is_read == False %}<td  style="text-align: center;" class="tp-3 mb-2 bg-danger text-white"><i class="fa fa-close"></i></td>{% else %}

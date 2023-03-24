@@ -120,7 +120,7 @@
                                             <div class="review-comments">
                                                 {% for comment in book.comments.actived %}
                                                 <div class="review-item">
-                                                    <span><strong>{{ comment.name }}</strong> در تاریخ <strong>{{ comment.created_on }}</strong></span>
+                                                    <span><strong>{{ comment.name }}</strong> در تاریخ <strong>{{ comment.jpublish }}</strong></span>
                                                     <p>{{ comment.body }}</p>
                                                 </div>
                                                 {% empty %}
