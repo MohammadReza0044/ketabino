@@ -8,29 +8,29 @@
 <form method="post" enctype="multipart/form-data"> {% csrf_token %}
     <div class="form-row">
         <div class="form-group col-md-4">
-            {{form.name|as_crispy_field}}
+            <label>نام نویسنده {{form.name}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.slug|as_crispy_field}}
+             <label>آدرس نویسنده در سایت  {{form.slug}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.nationality|as_crispy_field}}
+             <label>ملیت {{form.nationality}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.birth|as_crispy_field}}
+             <label>سال تولد  {{form.birth}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.death|as_crispy_field}}
+             <label>سال مرگ {{form.death}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.picture|as_crispy_field}}
+             <label>تصویر نویسنده {{form.picture}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.status|as_crispy_field}}
+             <label>آیا فعال است ؟ {{form.status}} </label>
         </div>
         <div class="form-group col-md-12">
+             <label>توضیحات {{form.description}} </label>
             {{form.media}}
-            {{form.description|as_crispy_field}}
         </div>
         <div class="form-group col-md-6">
             <button>ذخیره</button>

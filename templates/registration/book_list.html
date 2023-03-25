@@ -16,6 +16,7 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
+                    <th>تصویر</th>
                     <th>اسم</th>
                     <th>نویسنده</th>
                     <th> مترجم</th>
@@ -27,6 +28,7 @@
                   <tbody>
                       {% for book in object_list %}  
                 <tr>
+                    <td><img src="{{book.image.url}}" alt="{{book.name}}" style="width: 50px;"></td>
                     <td>{{book.name}}</td>
                     <td> {{book.author}}</td>
                     <td>{{book.translator}}</td>

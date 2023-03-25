@@ -8,43 +8,44 @@
 <form method="post" enctype="multipart/form-data"> {% csrf_token %}
     <div class="form-row">
         <div class="form-group col-md-4">
-            {{form.name|as_crispy_field}}
+            <label> اسم کتاب  {{form.name}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.slug|as_crispy_field}}
+            <label>آدرس کتاب در سایت {{form.slug}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.code|as_crispy_field}}
+            <label>کد کتاب {{form.code}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.author|as_crispy_field}}
+            <label> نویسنده  {{form.author}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.translator|as_crispy_field}}
+            <label>مترجم {{form.translator}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.publisher|as_crispy_field}}
+            <label>ناشر  {{form.publisher}} </label>
         </div>
         <div class="form-group col-md-4">
-            {{form.status|as_crispy_field}}
+            <label> وضعیت {{form.status}} </label>
         </div>
         <div class="form-group col-md-2">
-            {{form.pages|as_crispy_field}}
+            <label>تعداد صفحات  {{form.page}} </label>
         </div>
         <div class="form-group col-md-2">
-            {{form.published_date|as_crispy_field}}
+            <label>سال انتشار به میلادی  {{form.published_date}} </label>
         </div>
         <div class="form-group col-md-2">
-            {{form.price|as_crispy_field}}
+            <label>قیمت  {{form.price}} </label>
         </div>
         <div class="form-group col-md-2">
-            {{form.image|as_crispy_field}}
+            <label>تصویر کتاب {{form.image}} </label>
         </div>
         <div class="form-group col-md-12">
+            <label>توضیحات </label>
             {{form.media}}
-            {{form.description|as_crispy_field}}
+            {{form.description}}
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-6">
             <button>ذخیره</button>
         </div>
     </div>
