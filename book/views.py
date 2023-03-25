@@ -98,15 +98,14 @@ class ContactUs(SuccessMessageMixin, CreateView):
 
 
 
-
+ 
 class Search(ListView):
 	template_name = 'book/search.html'
 	paginate_by = 6
 
 	def get_queryset(self):
 		search = self.request.GET.get('q')
-		print(search)
-		return Book.objects.filter( Q(author__name__icontains = search) | Q(name__icontains = search)
+		return Book.objects.filter( Q(status = 'A') &  (Q(author__name__icontains = search) | Q(name__icontains = search))
 		)
 	
 	def get_context_data(self, **kwargs):

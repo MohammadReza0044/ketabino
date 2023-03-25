@@ -51,7 +51,7 @@
                         <p> تعداد صفحات: {{book.pages}}  </p>
                         
                     </div>
-                    <p>{{book.description|truncatewords:40}}</p>
+                    <p>{{book.description|safe|truncatewords:40}}</p>
                     <div class="product-add-to-cart">
                         <div class="input-counter">
                             <span class="minus-btn">
@@ -110,7 +110,7 @@
                             <div class="tab_content">
                                 <div class="tabs_item">
                                     <div class="products-details-tab-content">
-                                        <p>{{book.description}}</p>
+                                        <p>{{book.description|safe|linebreaks}}</p>
                                     </div>
                                 </div>
                             
@@ -121,7 +121,7 @@
                                                 {% for comment in book.comments.actived %}
                                                 <div class="review-item">
                                                     <span><strong>{{ comment.name }}</strong> در تاریخ <strong>{{ comment.jpublish }}</strong></span>
-                                                    <p>{{ comment.body }}</p>
+                                                    <p>{{ comment.body|safe }}</p>
                                                 </div>
                                                 {% empty %}
                                                 <p> اولین دیدگاه را شما وارد کنید </p>
