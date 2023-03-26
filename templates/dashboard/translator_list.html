@@ -1,16 +1,8 @@
-{% extends 'registration/base.html' %}
+{% extends 'dashboard/base.html' %}
 {% load static %}
 
-{% block title %} لیست دیدگاه کتاب ها {% endblock %}
+{% block title %} لیست مترجم ها {% endblock %}
 {% block main %}
-
-{% if messages %}
-{% for message in messages %}
- <div class="text-center alert alert-{{ message.tags }}">
-     {{ message|safe }}
- </div>
-{% endfor %}
-{% endif %}
 
     <!-- Main content -->
     <section class="content">
@@ -24,28 +16,20 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>نام کتاب</th>
-                    <th>نویسنده ی دیدگاه </th>
-                    <th> ایمیل نویسنده</th>
-                    <th>تاریخ ایجاد</th>
-                    <th>وضعیت</th>
-                    <th>خوانده شده</th>
+                    <th>اسم</th>
                   </tr>
                   </thead>
                   <tbody>
-                      {% for comment in object_list %}  
-                    <tr>
-                        <td>{{comment.book}}</td>
-                        <td> {{comment.name}}</td>
-                        <td>{{comment.email}}</td>
-                        <td>{{comment.jpublish}} </td>
-                        {% if comment.active == False %}<td  class="tp-3 mb-2 bg-danger text-white">تایید نشده <i class="fa fa-close"></i></td>{% else %}
-                        <td class="p-3 mb-2 bg-success text-white">تایید شده <i class="fa fa-check"></i></td>{% endif %}
-                        {% if comment.is_read == False %}<td  style="text-align: center;" class="tp-3 mb-2 bg-danger text-white"><i class="fa fa-close"></i></td>{% else %}
-                        <td style="text-align: center;" class="p-3 mb-2 bg-success text-white"> <i class="fa fa-check"></i></td>{% endif %}
-                        <td><a href="{% url 'Account:book_comment_detail' comment.pk %}" class="btn btn-block btn-info">نمایش</a></td>
-                    </tr>
-                    {% endfor %}
+                      {% for translator in object_list %}  
+                <tr>
+                    <td>{{translator.name}}</td>
+                    <td><a class="btn btn-app" href="{% url 'Dashboard:translator_update' translator.pk %}">
+                        <i class="fa fa-edit"></i> ویرایش
+                      </a></td>
+                    <td></td>
+
+                </tr>
+                {% endfor %}
                   </tbody>
                 </table>
               </div>

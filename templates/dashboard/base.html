@@ -10,19 +10,19 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{% static 'registration/dist/css/bootstrap-theme.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/dist/css/bootstrap-theme.css' %}">
   <!-- Bootstrap rtl -->
-  <link rel="stylesheet" href="{% static 'registration/dist/css/rtl.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/dist/css/rtl.css' %}">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{% static 'registration/bower_components/font-awesome/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/bower_components/font-awesome/css/font-awesome.min.css' %}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{% static 'registration/bower_components/Ionicons/css/ionicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/bower_components/Ionicons/css/ionicons.min.css' %}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{% static 'registration/dist/css/AdminLTE.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/dist/css/AdminLTE.css' %}">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="{% static 'registration/dist/css/skins/skin-blue.min.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/dist/css/skins/skin-blue.min.css' %}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,7 +61,7 @@ desired effect
   <!-- Main Header -->
   <header class="main-header">
     <!-- Logo -->
-    <a href="{% url 'Account:dashboard' %}" class="logo">
+    <a href="{% url 'Dashboard:dashboard' %}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">پنل</span>
       <!-- logo for regular state and mobile devices -->
@@ -117,7 +117,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-right image">
-          <img src="{% static 'registration/dist/img/profile.jpg' %}" class="img-circle" alt="User Image">
+          <img src="{% static 'dashboard/dist/img/profile.jpg' %}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-right info">
           <p>{{user.get_full_name}}</p>
@@ -139,7 +139,7 @@ desired effect
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="{% url 'Account:dashboard' %}"><i class="fa fa-home"></i> <span>خانه</span></a></li>
+        <li><a href="{% url 'Dashboard:dashboard' %}"><i class="fa fa-home"></i> <span>خانه</span></a></li>
         <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>لیست فروش</span></a></li>
         
         <li class="treeview">
@@ -149,8 +149,8 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{% url 'Account:book_list' %}"> لیست کتاب ها</a></li>
-            <li><a href="{% url 'Account:book_create' %}"> اضافه کردن کتاب جدید</a></li>
+            <li><a href="{% url 'Dashboard:book_list' %}"> لیست کتاب ها</a></li>
+            <li><a href="{% url 'Dashboard:book_create' %}"> اضافه کردن کتاب جدید</a></li>
           </ul>
         </li>
 
@@ -161,8 +161,8 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{% url 'Account:author_list' %}"> لیست نویسندگان </a></li>
-            <li><a href="{% url 'Account:author_create' %}"> اضافه کردن نویسنده جدید</a></li>
+            <li><a href="{% url 'Dashboard:author_list' %}"> لیست نویسندگان </a></li>
+            <li><a href="{% url 'Dashboard:author_create' %}"> اضافه کردن نویسنده جدید</a></li>
           </ul>
         </li>
 
@@ -173,8 +173,8 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{% url 'Account:translator_list' %}"> لیست مترجم ها</a></li>
-            <li><a href="{% url 'Account:translator_create' %}"> اضافه کردن مترجم جدید</a></li>
+            <li><a href="{% url 'Dashboard:translator_list' %}"> لیست مترجم ها</a></li>
+            <li><a href="{% url 'Dashboard:translator_create' %}"> اضافه کردن مترجم جدید</a></li>
           </ul>
         </li>
 
@@ -185,8 +185,8 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{% url 'Account:publisher_list' %}"> لیست ناشران </a></li>
-        <li><a href="{% url 'Account:publisher_create' %}"> اضافه کردن ناشر جدید</a></li>
+            <li><a href="{% url 'Dashboard:publisher_list' %}"> لیست ناشران </a></li>
+        <li><a href="{% url 'Dashboard:publisher_create' %}"> اضافه کردن ناشر جدید</a></li>
           </ul>
         </li>
 
@@ -197,8 +197,8 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{% url 'Account:book-comments_list' %}"> دیدگاه کتاب ها</a></li>
-            <li><a href="{% url 'Account:author-comments_list' %}"> دیدگاه نویسندگان</a></li>
+            <li><a href="{% url 'Dashboard:book-comments_list' %}"> دیدگاه کتاب ها</a></li>
+            <li><a href="{% url 'Dashboard:author-comments_list' %}"> دیدگاه نویسندگان</a></li>
           </ul>
         </li>
 
@@ -240,11 +240,11 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="{% static 'registration/bower_components/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'dashboard/bower_components/jquery/dist/jquery.min.js' %}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{% static 'registration/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'dashboard/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
 <!-- AdminLTE App -->
-<script src="{% static 'registration/dist/js/adminlte.min.js' %}"></script>
+<script src="{% static 'dashboard/dist/js/adminlte.min.js' %}"></script>
 
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.

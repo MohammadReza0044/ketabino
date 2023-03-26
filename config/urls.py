@@ -20,8 +20,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(('book.urls' , 'weblog') , namespace='book')),
-    path('account/', include(('account.urls' , 'weblog') , namespace='account')),
+    path('', include(('book.urls' , 'book') , namespace='book')),
+    path('account/', include(('account.urls' , 'account') , namespace='account')),
+    path('admin-dashboard/', include(('dashboard.urls' , 'dashboard') , namespace='dashboard')),
 ]
 
 

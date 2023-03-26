@@ -16,35 +16,6 @@ urlpatterns = [
 ]
 
 
-from account import views
-
-urlpatterns += [
-    path('admin-dashboard', views.DashboardIndex.as_view() , name='dashboard'),
-    path('admin-dashboard/books', views.BookDashboard.as_view() , name='book_list'),
-    path('admin-dashboard/book-create', views.BookCreate.as_view() , name='book_create'),
-    path('admin-dashboard/book-update/<int:pk>', views.BookUpdate.as_view() , name='book_update'),
-    path('admin-dashboard/authors', views.AuthorDashboard.as_view() , name='author_list'),
-    path('admin-dashboard/author-create', views.AuthorCreate.as_view() , name='author_create'),
-    path('admin-dashboard/author-update/<int:pk>', views.AuthorUpdate.as_view() , name='author_update'),
-    path('admin-dashboard/publishers', views.PublisherDashboard.as_view() , name='publisher_list'),
-    path('admin-dashboard/publisher-create', views.PublisherCreate.as_view() , name='publisher_create'),
-    path('admin-dashboard/publisher-update/<int:pk>', views.PublisherUpdate.as_view() , name='publisher_update'),
-    path('admin-dashboard/translators', views.TranslatorDashboard.as_view() , name='translator_list'),
-    path('admin-dashboard/translator-create', views.TranslatorCreate.as_view() , name='translator_create'),
-    path('admin-dashboard/translator-update/<int:pk>', views.TranslatorUpdate.as_view() , name='translator_update'),
-    path('admin-dashboard/book-comments', views.BookCommentDashboard.as_view() , name='book-comments_list'),
-    path('admin-dashboard/author-comments', views.AuthorCommentDashboard.as_view() , name='author-comments_list'),
-    path('admin-dashboard/book-comment/<int:pk>', views.BookCommentDetail.as_view() , name='book_comment_detail'),
-    path('admin-dashboard/author-comment/<int:pk>', views.AuthorCommentDetail.as_view() , name='author_comment_detail'),
-    path('admin-dashboard/book-comment_delete/<int:pk>', views.BookCommentDelete.as_view() , name='book_comment_delete'),
-    path('admin-dashboard/author-comment_delete/<int:pk>', views.AuthorCommentDelete.as_view() , name='author_comment_delete'),
-    path('admin-dashboard/book-comment_active/<int:pk>', views.BookCommentActive.as_view() , name='book_comment_active'),
-    path('admin-dashboard/author-comment_active/<int:pk>', views.AuthorCommentActive.as_view() , name='author_comment_active'),
-
-
-
-]
-
 
 
 

@@ -1,14 +1,14 @@
-{% extends 'registration/base.html' %}
+{% extends 'dashboard/base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %} اضافه کردن مترجم جدید{% endblock %}
+{% block title %} اضافه کردن ناشر جدید{% endblock %}
 {% block main %}
 <br><br>
 <form method="post" enctype="multipart/form-data"> {% csrf_token %}
     <div class="form-row">
         <div class="form-group col-md-8">
-            <label> نام مترجم  </label>
+            <label> نام ناشر  </label>
             {{form.name}}
         </div>
         <div class="form-group col-md-6">

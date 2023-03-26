@@ -1,7 +1,7 @@
-{% extends 'registration/base.html' %}
+{% extends 'dashboard/base.html' %}
 {% load static %}
 
-{% block title %} لیست دیدگاه نویسندگان  {% endblock %}
+{% block title %} لیست دیدگاه کتاب ها {% endblock %}
 {% block main %}
 
 {% if messages %}
@@ -24,8 +24,8 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>نام نویسنده</th>
-                    <th> نویسنده ی دیدگاه</th>
+                    <th>نام کتاب</th>
+                    <th>نویسنده ی دیدگاه </th>
                     <th> ایمیل نویسنده</th>
                     <th>تاریخ ایجاد</th>
                     <th>وضعیت</th>
@@ -34,18 +34,18 @@
                   </thead>
                   <tbody>
                       {% for comment in object_list %}  
-                <tr>
-                    <td>{{comment.author}}</td>
-                    <td> {{comment.name}}</td>
-                    <td>{{comment.email}}</td>
-                    <td>{{comment.jpublish}} </td>
-                    {% if comment.active == False %}<td  class="tp-3 mb-2 bg-danger text-white">تایید نشده <i class="fa fa-close"></i></td>{% else %}
-                    <td class="p-3 mb-2 bg-success text-white">تایید شده <i class="fa fa-check"></i></td>{% endif %}
-                    {% if comment.is_read == False %}<td  style="text-align: center;" class="tp-3 mb-2 bg-danger text-white"><i class="fa fa-close"></i></td>{% else %}
+                    <tr>
+                        <td>{{comment.book}}</td>
+                        <td> {{comment.name}}</td>
+                        <td>{{comment.email}}</td>
+                        <td>{{comment.jpublish}} </td>
+                        {% if comment.active == False %}<td  class="tp-3 mb-2 bg-danger text-white">تایید نشده <i class="fa fa-close"></i></td>{% else %}
+                        <td class="p-3 mb-2 bg-success text-white">تایید شده <i class="fa fa-check"></i></td>{% endif %}
+                        {% if comment.is_read == False %}<td  style="text-align: center;" class="tp-3 mb-2 bg-danger text-white"><i class="fa fa-close"></i></td>{% else %}
                         <td style="text-align: center;" class="p-3 mb-2 bg-success text-white"> <i class="fa fa-check"></i></td>{% endif %}
-                    <td><a href="{% url 'Account:author_comment_detail' comment.pk %}" class="btn btn-block btn-info">نمایش</a></td>
-                </tr>
-                {% endfor %}
+                        <td><a href="{% url 'Dashboard:book_comment_detail' comment.pk %}" class="btn btn-block btn-info">نمایش</a></td>
+                    </tr>
+                    {% endfor %}
                   </tbody>
                 </table>
               </div>

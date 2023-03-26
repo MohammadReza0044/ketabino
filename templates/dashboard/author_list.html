@@ -1,4 +1,4 @@
-{% extends 'registration/base.html' %}
+{% extends 'dashboard/base.html' %}
 {% load static %}
 
 {% block title %} لیست نویسندگان  {% endblock %}
@@ -32,7 +32,7 @@
                     <td>{{author.birth}}</td>
                     {% if author.status == False %}<td  class="tp-3 mb-2 bg-danger text-white">تایید نشده <i class="fa fa-close"></i></td>{% else %}
                     <td class="p-3 mb-2 bg-success text-white">تایید شده <i class="fa fa-check"></i></td>{% endif %}
-                    <td><a class="btn btn-app" href="{% url 'Account:author_update' author.pk %}">
+                    <td><a class="btn btn-app" href="{% url 'Dashboard:author_update' author.pk %}">
                         <i class="fa fa-edit"></i> ویرایش
                       </a></td>
                     <td></td>

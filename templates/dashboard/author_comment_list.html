@@ -1,8 +1,16 @@
-{% extends 'registration/base.html' %}
+{% extends 'dashboard/base.html' %}
 {% load static %}
 
-{% block title %} لیست کتاب ها {% endblock %}
+{% block title %} لیست دیدگاه نویسندگان  {% endblock %}
 {% block main %}
+
+{% if messages %}
+{% for message in messages %}
+ <div class="text-center alert alert-{{ message.tags }}">
+     {{ message|safe }}
+ </div>
+{% endfor %}
+{% endif %}
 
     <!-- Main content -->
     <section class="content">
@@ -16,31 +24,26 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>تصویر</th>
-                    <th>اسم</th>
-                    <th>نویسنده</th>
-                    <th> مترجم</th>
-                    <th>ناشر</th>
-                    <th>قیمت (تومان)</th>
+                    <th>نام نویسنده</th>
+                    <th> نویسنده ی دیدگاه</th>
+                    <th> ایمیل نویسنده</th>
+                    <th>تاریخ ایجاد</th>
                     <th>وضعیت</th>
+                    <th>خوانده شده</th>
                   </tr>
                   </thead>
                   <tbody>
-                      {% for book in object_list %}  
+                      {% for comment in object_list %}  
                 <tr>
-                    <td><img src="{{book.image.url}}" alt="{{book.name}}" style="width: 50px;"></td>
-                    <td>{{book.name}}</td>
-                    <td> {{book.author}}</td>
-                    <td>{{book.translator}}</td>
-                    <td>{{book.publisher}} </td>
-                    <td>{{book.price}}</td>
-                    {% if book.status == 'U' %}<td  class="tp-3 mb-2 bg-danger text-white">تایید نشده <i class="fa fa-close"></i></td>{% else %}
+                    <td>{{comment.author}}</td>
+                    <td> {{comment.name}}</td>
+                    <td>{{comment.email}}</td>
+                    <td>{{comment.jpublish}} </td>
+                    {% if comment.active == False %}<td  class="tp-3 mb-2 bg-danger text-white">تایید نشده <i class="fa fa-close"></i></td>{% else %}
                     <td class="p-3 mb-2 bg-success text-white">تایید شده <i class="fa fa-check"></i></td>{% endif %}
-                    <td><a class="btn btn-app" href="{% url 'Account:book_update' book.pk %}">
-                        <i class="fa fa-edit"></i> ویرایش
-                      </a></td>
-                    <td></td>
-
+                    {% if comment.is_read == False %}<td  style="text-align: center;" class="tp-3 mb-2 bg-danger text-white"><i class="fa fa-close"></i></td>{% else %}
+                        <td style="text-align: center;" class="p-3 mb-2 bg-success text-white"> <i class="fa fa-check"></i></td>{% endif %}
+                    <td><a href="{% url 'Dashboard:author_comment_detail' comment.pk %}" class="btn btn-block btn-info">نمایش</a></td>
                 </tr>
                 {% endfor %}
                   </tbody>
