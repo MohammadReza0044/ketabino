@@ -21,13 +21,11 @@ class UserForm(forms.ModelForm):
 class UserUpdateForm(forms.ModelForm):
 	class Meta:
 		model = User
-		fields = ['username', 'password', 'first_name','last_name', 'email', 'is_superuser','is_staff','is_active']
+		fields = ['username','password','first_name','last_name', 'email', 'is_superuser','is_staff','is_active']
 
 	def save(self, commit=True):
 		user = super(UserUpdateForm, self).save(commit=False)
-		password = self.cleaned_data["password"]
-		if password:
-			user.set_password(password)
-			if commit:
-				user.save()
+		user.set_password(self.cleaned_data["password"])
+		if commit:
+			user.save()
 		return user
