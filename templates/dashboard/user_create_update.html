@@ -1,0 +1,40 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} اضافه کردن کاربر جدید{% endblock %}
+{% block main %}
+<br><br>
+<form method="post"> {% csrf_token %}
+    <div class="form-row">
+         <div class="form-group col-md-4">
+              <label>نام کاربری {{form.username}} </label>
+         </div>
+         <div class="form-group col-md-4">
+              <label> کلمه ی عبور {{form.password}} </label>
+         </div>
+        <div class="form-group col-md-4">
+            <label>نام {{form.first_name}} </label>
+        </div>
+        <div class="form-group col-md-4">
+             <label>نام خانوادگی {{form.last_name}} </label>
+        </div>
+        <div class="form-group col-md-4">
+            <label> آدرس ایمیل {{form.email}} </label>
+       </div>
+        <div class="form-group col-md-8">
+             <label>آیا کاربر سایت است ؟ {{form.is_active}} </label>
+        </div>
+        <div class="form-group col-md-8">
+             <label>آیا کاربر شرکت است ؟ {{form.is_staff}} </label>
+        </div>
+        <div class="form-group col-md-8">
+             <label>آیا ادمین کل سایت است ؟ {{form.is_superuser}} </label>
+        </div>
+        <div class="form-group col-md-8">
+            <button>ذخیره</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

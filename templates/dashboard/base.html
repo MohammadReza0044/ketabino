@@ -202,7 +202,18 @@ desired effect
           </ul>
         </li>
 
-        <li class="active"><a href="#"><i class="fa fa-users"></i> <span>کاربران</span></a></li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-users"></i></i> <span> کاربران</span>
+            <span class="pull-left-container">
+              <i class="fa fa-angle-right pull-left"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'Dashboard:user_list' %}"> کاربران </a></li>
+            <li><a href="{% url 'Dashboard:user_create' %}"> اضافه کردن کاربر جدید </a></li>
+          </ul>
+        </li>
+
       </ul>
       <!-- /.sidebar-menu -->
     </section>

@@ -5,6 +5,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin 
 from django.db.models import Q
 
+from django.contrib.auth.models import User
+
+from .forms import UserForm , UserUpdateForm
 from book.models import Book , Author, Publisher, Translator, BookComment, AuthorComment
 
 
@@ -163,3 +166,36 @@ class AuthorCommentActive(LoginRequiredMixin, UpdateView):
     def get_object(self):
         pk = self.kwargs.get('pk')
         return AuthorComment.objects.get(pk=pk)
+    
+
+# publisher classes
+class UserDashboard(LoginRequiredMixin , ListView):
+    queryset = User.objects.all().order_by('-is_superuser','-is_staff')
+    template_name = 'dashboard/user_list.html'
+    paginate_by = 10
+
+
+class UserCreate(LoginRequiredMixin, CreateView):
+    model = User
+    form_class = UserForm
+    template_name = 'dashboard/user_create_update.html'
+    success_url = reverse_lazy ('Dashboard:user_list')\
+
+
+class UserUpdate(LoginRequiredMixin,SuccessMessageMixin, UpdateView):
+    model = User
+    form_class = UserUpdateForm
+    template_name = 'dashboard/user_create_update.html'
+    success_url = reverse_lazy ('Dashboard:user_list')
+    success_message = "کاربر، با موفقیت ویراش شد."
+
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404 (User , pk=pk)
+
+
+class UserDelete(LoginRequiredMixin,SuccessMessageMixin, DeleteView):
+    model = User
+    template_name = 'dashboard/delete_confirm.html'
+    success_url = reverse_lazy ('Dashboard:user_list')
+    success_message = "دیدگاه، با موفقیت حذف شد."

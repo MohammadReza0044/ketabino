@@ -1,9 +1,17 @@
 {% extends 'dashboard/base.html' %}
 {% load static %}
 
-{% block title %} لیست نویسندگان  {% endblock %}
+{% block title %} لیست کاربران سایت  {% endblock %}
 {% block main %}
 
+
+{% if messages %}
+{% for message in messages %}
+ <div class="text-center alert alert-{{ message.tags }}">
+     {{ message|safe }}
+ </div>
+{% endfor %}
+{% endif %}
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -16,27 +24,33 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>تصویر</th>
-                    <th>اسم</th>
-                    <th>ملیت</th>
-                    <th>تاریخ تولد</th>
+                    <th>نام</th>
+                    <th>نام خانوادگی</th>
+                    <th>نام کاربری</th>
+                    <th>آدرس ایمیل</th>
+                    <th>نوع کاربر </th>
                     <th>وضعیت</th>
                   </tr>
                   </thead>
                   <tbody>
-                      {% for author in object_list %}  
+                      {% for user in object_list %}  
                 <tr>
-                    <td><img src="{{author.picture.url}}" alt="{{author.name}}" style="width: 50px;"></td>
-                    <td>{{author.name}}</td>
-                    <td> {{author.nationality}}</td>
-                    <td>{{author.birth}}</td>
-                    {% if author.status == False %}<td  class="tp-3 mb-2 bg-danger text-white">تایید نشده <i class="fa fa-close"></i></td>{% else %}
-                    <td class="p-3 mb-2 bg-success text-white">تایید شده <i class="fa fa-check"></i></td>{% endif %}
-                    <td><a class="btn btn-app" href="{% url 'Dashboard:author_update' author.pk %}">
+                    <td>{{user.first_name}}</td>
+                    <td> {{user.last_name}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    {% if user.is_superuser %}<td  class="tp-3 mb-2 bg-primary text-white"> ادمین کل سایت  <i class="fa fa-user"></i></i></td>{% elif user.is_staff  %}
+                    <td class="p-3 mb-2 bg-info text-dark">کاربر شرکت  <i class="fa fa-user"></i></td>{% elif user.is_active %}
+                    <td class="p-3 mb-2 bg-warning text-dark">کاربر سایت  <i class="fa fa-user-circle-o"></i></td>{% else %}
+                    <td class="p-3 mb-2 bg-danger text-white">کاربر غیر فعال  <i class="fa fa-user-times"></i></td>{% endif %}
+                    <td><a class="btn btn-app" href="{% url 'Dashboard:user_update' user.pk %}">
                         <i class="fa fa-edit"></i> ویرایش
-                      </a></td>
+                      </a>
                     <td>
-
+                    <td><a class="btn btn-app" href="{% url 'Dashboard:user_delete' user.pk %}">
+                        <i class="fa fa-trash-o"></i> حذف
+                      </a>
+                    <td>
                 </tr>
                 {% endfor %}
                   </tbody>

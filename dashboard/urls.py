@@ -26,6 +26,10 @@ urlpatterns = [
     path('author-comment_delete/<int:pk>', views.AuthorCommentDelete.as_view() , name='author_comment_delete'),
     path('book-comment_active/<int:pk>', views.BookCommentActive.as_view() , name='book_comment_active'),
     path('author-comment_active/<int:pk>', views.AuthorCommentActive.as_view() , name='author_comment_active'),
+    path('users', views.UserDashboard.as_view() , name='user_list'),
+    path('user-create', views.UserCreate.as_view() , name='user_create'),
+    path('user-update/<int:pk>', views.UserUpdate.as_view() , name='user_update'),
+    path('user-delete/<int:pk>', views.UserDelete.as_view() , name='user_delete'),
 
 
 
