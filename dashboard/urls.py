@@ -30,6 +30,7 @@ urlpatterns = [
     path('user-create', views.UserCreate.as_view() , name='user_create'),
     path('user-update/<int:pk>', views.UserUpdate.as_view() , name='user_update'),
     path('user-delete/<int:pk>', views.UserDelete.as_view() , name='user_delete'),
+    path('user-profile', views.UserProfile.as_view() , name='user_profile'),
 
 
 

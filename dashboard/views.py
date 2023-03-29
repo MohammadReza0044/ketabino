@@ -1,14 +1,14 @@
 from django.shortcuts import render , get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import ListView , CreateView , UpdateView , DeleteView
+from django.views.generic import ListView , CreateView , UpdateView , DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin 
 from django.contrib.messages.views import SuccessMessageMixin 
 from django.db.models import Q
 
 from django.contrib.auth.models import User
 
-from .forms import UserForm , UserUpdateForm
-from . mixins import DashboardLoginMixin
+from .forms import UserForm , UserUpdateForm, UserProfileForm
+from . mixins import DashboardLoginMixin , SuperuserAccessMixin
 from book.models import Book , Author, Publisher, Translator, BookComment, AuthorComment
 
 
@@ -119,7 +119,7 @@ class AuthorCommentDashboard(LoginRequiredMixin ,DashboardLoginMixin, ListView):
 
 
 
-class BookCommentDetail(LoginRequiredMixin,DashboardLoginMixin, DeleteView):
+class BookCommentDetail(LoginRequiredMixin,DashboardLoginMixin, DetailView):
     template_name = 'dashboard/book_comment_detail.html'
 
     def get_object(self):
@@ -127,7 +127,7 @@ class BookCommentDetail(LoginRequiredMixin,DashboardLoginMixin, DeleteView):
         return get_object_or_404 (BookComment , pk=pk)
     
 
-class AuthorCommentDetail(LoginRequiredMixin, DeleteView):
+class AuthorCommentDetail(LoginRequiredMixin,DashboardLoginMixin, DetailView):
     template_name = 'dashboard/author_comment_detail.html'
 
     def get_object(self):
@@ -135,14 +135,14 @@ class AuthorCommentDetail(LoginRequiredMixin, DeleteView):
         return get_object_or_404 (AuthorComment , pk=pk)
     
 
-class BookCommentDelete(LoginRequiredMixin,SuccessMessageMixin,DashboardLoginMixin, DeleteView):
+class BookCommentDelete(LoginRequiredMixin,DashboardLoginMixin,SuperuserAccessMixin,SuccessMessageMixin,DeleteView):
     model = BookComment
     template_name = 'dashboard/delete_confirm.html'
     success_url = reverse_lazy ('Dashboard:book-comments_list')
     success_message = "دیدگاه، با موفقیت حذف شد."
 
 
-class AuthorCommentDelete(LoginRequiredMixin,SuccessMessageMixin,DashboardLoginMixin, DeleteView):
+class AuthorCommentDelete(LoginRequiredMixin,DashboardLoginMixin,SuperuserAccessMixin,SuccessMessageMixin,DeleteView):
     model = AuthorComment
     template_name = 'dashboard/delete_confirm.html'
     success_url = reverse_lazy ('Dashboard:author-comments_list')
@@ -170,20 +170,20 @@ class AuthorCommentActive(LoginRequiredMixin,DashboardLoginMixin, UpdateView):
     
 
 # users classes
-class UserDashboard(LoginRequiredMixin ,DashboardLoginMixin, ListView):
+class UserDashboard(LoginRequiredMixin ,DashboardLoginMixin,SuperuserAccessMixin, ListView):
     queryset = User.objects.all().order_by('-is_superuser','-is_staff')
     template_name = 'dashboard/user_list.html'
     paginate_by = 10
 
 
-class UserCreate(LoginRequiredMixin,DashboardLoginMixin, CreateView):
+class UserCreate(LoginRequiredMixin,DashboardLoginMixin,SuperuserAccessMixin, CreateView):
     model = User
     form_class = UserForm
     template_name = 'dashboard/user_create_update.html'
     success_url = reverse_lazy ('Dashboard:user_list')\
 
 
-class UserUpdate(LoginRequiredMixin,SuccessMessageMixin,DashboardLoginMixin, UpdateView):
+class UserUpdate(LoginRequiredMixin,SuccessMessageMixin,DashboardLoginMixin,SuperuserAccessMixin, UpdateView):
     model = User
     form_class = UserUpdateForm
     template_name = 'dashboard/user_create_update.html'
@@ -195,8 +195,27 @@ class UserUpdate(LoginRequiredMixin,SuccessMessageMixin,DashboardLoginMixin, Upd
         return get_object_or_404 (User , pk=pk)
 
 
-class UserDelete(LoginRequiredMixin,SuccessMessageMixin,DashboardLoginMixin, DeleteView):
+class UserDelete(LoginRequiredMixin,DashboardLoginMixin,SuperuserAccessMixin,SuccessMessageMixin,DeleteView):
     model = User
     template_name = 'dashboard/delete_confirm.html'
     success_url = reverse_lazy ('Dashboard:user_list')
     success_message = "دیدگاه، با موفقیت حذف شد."
+
+
+
+class UserProfile(LoginRequiredMixin,DashboardLoginMixin,UpdateView):
+    model = User
+    form_class = UserProfileForm
+    template_name = 'dashboard/user_profile.html'
+    success_url = reverse_lazy ('Dashboard:user_profile')
+    success_message = "کاربر، با موفقیت ویرایش شد."
+
+    def get_object(self):
+        return User.objects.get(pk = self.request.user.pk) 
+    
+    def get_form_kwargs(self):
+        kwargs = super(UserProfile,self).get_form_kwargs()
+        kwargs.update(
+            {'user':self.request.user}
+        )
+        return kwargs
