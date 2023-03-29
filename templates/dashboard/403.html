@@ -1,3 +1,27 @@
-<h1>شما اجازه ی همچین کاری را ندارید</h1>
+{% extends 'dashboard/base.html' %}
+{% load static %}
 
-<h3>برو گوزت رو بکن</h3>
+{% block title %} عدم دسترسی {% endblock %}
+{% block main %}
+
+
+<section class="content">
+    <div class="error-page">
+      <h2 class="headline text-yellow"> 403</h2>
+
+      <div class="error-content">
+        <h3><i class="fa fa-warning text-yellow"></i> عدم دسترسی </h3>
+
+        <p>
+            متاسفانه شما اجازه ی انجام دادن این عملیات را ندارید.
+            لطفا با ادمین کل سایت تماس بگیرید.
+            برای برگشت به خانه ی اصلی <a href="{% url 'Dashboard:dashboard' %}"> اینجا</a> کلیک نمایید
+        </p>
+
+      </div>
+      <!-- /.error-content -->
+    </div>
+    <!-- /.error-page -->
+  </section>
+
+{% endblock %}

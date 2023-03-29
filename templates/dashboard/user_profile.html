@@ -4,6 +4,14 @@
 
 {% block title %} پروفایل کاربری  {% endblock %}
 {% block main %}
+
+{% if messages %}
+{% for message in messages %}
+ <div class="text-center alert alert-{{ message.tags }}">
+     {{ message|safe }}
+ </div>
+{% endfor %}
+{% endif %}
 <br><br>
 <form method="post"> {% csrf_token %}
     <div class="form-row">

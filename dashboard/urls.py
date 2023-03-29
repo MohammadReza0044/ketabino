@@ -3,7 +3,6 @@ from dashboard import views
 
 
 app_name = 'Dashboard'
-
 urlpatterns = [
     path('', views.DashboardIndex.as_view() , name='dashboard'),
     path('books', views.BookDashboard.as_view() , name='book_list'),
@@ -33,8 +32,19 @@ urlpatterns = [
     path('user-profile', views.UserProfile.as_view() , name='user_profile'),
 
 
+]
+
+
+from django.contrib.auth import views
+
+urlpatterns += [
+    path("logout", views.LogoutView.as_view(), name="logout")
 
 ]
+
+
+
+
 
 
 

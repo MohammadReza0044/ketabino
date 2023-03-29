@@ -95,7 +95,7 @@
                         <div class="d-flex align-items-center">
                             <div class="option-item">
                                 <ul class="social-icon">
-                                    {% if user.is_superuser %}
+                                    {% if user.is_superuser or user.is_staff %}
                                     <li>
                                         <a href="{% url 'Dashboard:dashboard' %}" target="_blank" title="ادمین پنل">
                                             <i class="fa fa-dashboard"></i>

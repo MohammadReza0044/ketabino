@@ -203,7 +203,7 @@ class UserDelete(LoginRequiredMixin,DashboardLoginMixin,SuperuserAccessMixin,Suc
 
 
 
-class UserProfile(LoginRequiredMixin,DashboardLoginMixin,UpdateView):
+class UserProfile(LoginRequiredMixin,DashboardLoginMixin,SuccessMessageMixin,UpdateView):
     model = User
     form_class = UserProfileForm
     template_name = 'dashboard/user_profile.html'
