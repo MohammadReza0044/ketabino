@@ -1,0 +1,30 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %} پروفایل کاربری {% endblock %}
+
+{% block main %}
+
+<br>
+<hr>
+<div class="col-lg-4 col-md-12" style="margin-right: 20px;">
+    <aside class="widget-area" id="secondary">
+        <section class="widget widget_categories">
+            <h3 class="widget-title">پروفایل کاربری</h3>
+            <br>
+            <ul>
+                <li>
+                    <a href="#"> گزارش خرید</a>
+                </li>
+                <li>
+                    <a href="{% url 'Account:user_info' %}">اطلاعات کاربری</a>
+                </li>
+                <li>
+                    <a href="{% url 'Account:password_change' %}">تغییر رمز عبور</a>
+                </li>
+            </ul>
+        </section>
+    </aside>
+</div>
+
+{% endblock %}
