@@ -23,6 +23,7 @@ urlpatterns += [
     path("password-change", views.PasswordChange.as_view(), name="password_change"),
     path("profile", views.UserProfile.as_view(), name="profile"),
     path("profile/user-info", views.UserInfo.as_view(), name="user_info"),
+    path("profile/sing-up", views.UserSingup.as_view(), name="singup"),
 
 ]
 

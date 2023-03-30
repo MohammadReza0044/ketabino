@@ -14,6 +14,7 @@ class UserForm(forms.ModelForm):
 		user = super().save(commit=False)
 		user.set_password(self.cleaned_data['password'])
 		if commit:
+			user.is_active = True
 			user.save()
 		return user
 

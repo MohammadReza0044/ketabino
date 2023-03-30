@@ -115,7 +115,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'Account:profile' %}" title="پروفایل کاربری">
+                                        <a href="{% url 'Account:profile' %}" title="  {{user.get_full_name}}">
                                             <i class="fa fa fa-user"></i>
                                         </a>
                                     </li>
@@ -125,9 +125,6 @@
                                             <i class='fa fa-cart-arrow-down'></i>
                                         </a>
                                     </li>
-                                    {% if user.is_authenticated %}
-                                    <p>خوش آمدید{{user.get_full_name}}</p>
-                                    {% endif %}
                                 </ul>
                             </div>
                         </div>

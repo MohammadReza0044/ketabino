@@ -4,6 +4,15 @@
 {% block title %}  ورود کاربر {% endblock %}
 
 {% block main %}
+
+{% if messages %}
+{% for message in messages %}
+ <div class="text-center alert alert-{{ message.tags }}">
+     {{ message|safe }}
+ </div>
+{% endfor %}
+{% endif %}
+
 <br>
 <div class="banner-form" style="width: 50%; margin: auto;">
     <form method="post"> {% csrf_token %}
@@ -26,9 +35,11 @@
            {% endif %}
         </div>
 
-        
+        <p>رمز عبور خود را فراموش کرده اید ؟</p>
 
         <button type="submit" class="btn btn-primary">وارد</button>
     </form>
+    <br>
+    <p>آیا حساب کاربری ندارید؟ برای ایجاد حساب کاربری <a href="{% url 'Account:singup' %}"> اینجا</a> را کلیک نمایید</p>
 </div>
 {% endblock %}

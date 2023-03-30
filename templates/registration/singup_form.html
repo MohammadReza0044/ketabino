@@ -1,0 +1,35 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %} اطلاعات کاربری {% endblock %}
+
+
+{% block main %}
+
+<br><br>
+<div class="banner-form" style="width: 50%; margin: auto;">
+    <form method="post"> {% csrf_token %}
+        <div class="form-group"> 
+            <label>نام کاربری </label>
+           {{form.username|add_class:'form-control'}}
+        </div>
+        <div class="form-group"> 
+            <label> رمز عبور </label>
+           {{form.password|add_class:'form-control'}}
+        </div>
+        <div class="form-group"> 
+            <label>نام </label>
+           {{form.first_name|add_class:'form-control'}}
+        </div>
+        <div class="form-group"> 
+            <label>نام خانوادگی </label>
+           {{form.last_name|add_class:'form-control'}}
+        </div>
+        <div class="form-group"> 
+            <label>آدرس ایمیل</label>
+           {{form.email|add_class:'form-control'}}
+        </div>
+        <button type="submit" class="btn btn-primary">ذخیره</button>
+    </form>
+</div>
+{% endblock %}

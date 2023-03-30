@@ -1,10 +1,12 @@
 from django.shortcuts import render 
 from django.urls import reverse_lazy
-from django.views.generic import ListView, UpdateView, TemplateView
+from django.views.generic import ListView, UpdateView, TemplateView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin 
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.models import User
+
+from dashboard.forms import UserForm
 
 
 
@@ -27,3 +29,11 @@ class UserInfo(LoginRequiredMixin,SuccessMessageMixin,UpdateView):
 
 class PasswordChange(LoginRequiredMixin,PasswordChangeView):
     success_url = reverse_lazy('Account:password_change_done')
+
+
+class UserSingup(SuccessMessageMixin,CreateView):
+    model = User
+    form_class = UserForm
+    template_name = 'registration/singup_form.html'
+    success_url = reverse_lazy ('Account:login')
+    success_message = "حساب کاربری شما با موفقیت ایجاد شد. لطفا وارد حساب کاربری خود شوید."

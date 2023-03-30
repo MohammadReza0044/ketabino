@@ -180,7 +180,7 @@ class UserCreate(LoginRequiredMixin,DashboardLoginMixin,SuperuserAccessMixin, Cr
     model = User
     form_class = UserForm
     template_name = 'dashboard/user_create_update.html'
-    success_url = reverse_lazy ('Dashboard:user_list')\
+    success_url = reverse_lazy ('Dashboard:user_list')
 
 
 class UserUpdate(LoginRequiredMixin,SuccessMessageMixin,DashboardLoginMixin,SuperuserAccessMixin, UpdateView):
