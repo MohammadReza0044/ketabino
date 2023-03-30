@@ -100,11 +100,12 @@ class Contact(models.Model):
 	phone_number = models.IntegerField()
 	subject = models.CharField(max_length=255)
 	text = models.TextField()
-	created_date = models.DateField(auto_now_add=True)
+	created_date = models.DateTimeField(auto_now_add=True)
+	is_read = models.BooleanField(default=False)
 	
 	class Meta:
 		db_table = 'Contact Us'
-		ordering = ['created_date']
+		ordering = ['-created_date']
 
 
 	def __str__(self):
@@ -112,6 +113,10 @@ class Contact(models.Model):
 	
 	def get_absolute_url(self):
 		return reverse('Book:contact_us')
+	
+	def jpublish(self):
+		return jalali_converter(self.created_date)
+	
 
 
 class BookComment(models.Model):

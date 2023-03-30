@@ -8,8 +8,8 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 
 from .forms import UserForm , UserUpdateForm, UserProfileForm
-from . mixins import DashboardLoginMixin , SuperuserAccessMixin
-from book.models import Book , Author, Publisher, Translator, BookComment, AuthorComment
+from .mixins import DashboardLoginMixin , SuperuserAccessMixin
+from book.models import Book , Author, Publisher, Translator, BookComment, AuthorComment, Contact
 
 
 
@@ -219,3 +219,37 @@ class UserProfile(LoginRequiredMixin,DashboardLoginMixin,SuccessMessageMixin,Upd
             {'user':self.request.user}
         )
         return kwargs
+    
+
+
+# contact-us classes
+class ContactUsDashboard(LoginRequiredMixin ,DashboardLoginMixin,ListView):
+    queryset = Contact.objects.all()
+    template_name = 'dashboard/contact_us_list.html'
+    paginate_by = 10
+
+
+class ContactUsDetail(LoginRequiredMixin,DashboardLoginMixin, DetailView):
+    template_name = 'dashboard/contact_us_detail.html'
+
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404 (Contact , pk=pk)
+    
+
+class ContactUsActive(LoginRequiredMixin,DashboardLoginMixin, UpdateView):
+    model = Contact
+    fields = ('is_read',)
+    template_name = 'dashboard/Contact_us_active.html'
+    success_url = reverse_lazy ('Dashboard:contact_us_list')
+
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        return Contact.objects.get(pk=pk)
+
+
+class ContactUsDelete(LoginRequiredMixin,DashboardLoginMixin,SuperuserAccessMixin,SuccessMessageMixin,DeleteView):
+    model = Contact
+    template_name = 'dashboard/delete_confirm.html'
+    success_url = reverse_lazy ('Dashboard:contact_us_list')
+    success_message = "تماس با ما با موفقیت حذف شد."

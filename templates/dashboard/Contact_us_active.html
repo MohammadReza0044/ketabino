@@ -1,7 +1,7 @@
 {% extends 'dashboard/base.html' %}
 {% load static %}
 
-{% block title %} تایید حذف  {% endblock %}
+{% block title %} تایید تماس با ما  {% endblock %}
 {% block main %}
 
 <div class="modal-dialog">
@@ -9,8 +9,8 @@
 
         <div class="modal-body">
             <form method="post">{% csrf_token %}
-                <p>آیا از حذف   "{{ object }}" اطمینان دارید ؟</p>
-                {{ form }}
+                <label>آیا تماس با ما خوانده شود؟ </label> &nbsp&nbsp {{ form.is_read }}
+                <hr>
                 <input type="submit"  value="تایید">
             </form>
         </div>

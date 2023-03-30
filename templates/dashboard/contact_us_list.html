@@ -1,0 +1,85 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %} لیست تماس با ما  {% endblock %}
+{% block main %}
+
+{% if messages %}
+{% for message in messages %}
+ <div class="text-center alert alert-{{ message.tags }}">
+     {{ message|safe }}
+ </div>
+{% endfor %}
+{% endif %}
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>نام و نام خانوادگی</th>
+                    <th> ایمیل </th>
+                    <th> موبایل </th>
+                    <th> موضوع </th>
+                    <th>تاریخ ایجاد</th>
+                    <th>خوانده شده</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                      {% for contact in object_list %}  
+                    <tr>
+                        <td>{{contact.full_name}}</td>
+                        <td> {{contact.email}}</td>
+                        <td>{{contact.phone_number}}</td>
+                        <td>{{contact.subject}} </td>
+                        <td>{{contact.jpublish}} </td>
+                        {% if contact.is_read == False %}<td  style="text-align: center;" class="tp-3 mb-2 bg-danger text-white"><i class="fa fa-close"></i></td>{% else %}
+                        <td style="text-align: center;" class="p-3 mb-2 bg-success text-white"> <i class="fa fa-check"></i></td>{% endif %}
+                        <td><a href="{% url 'Dashboard:contact_us_detail' contact.pk %}" class="btn btn-block btn-info">نمایش</a></td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <!--Pagination-->
+        <section class="articles-pagination">
+  
+            <div class="container p-4 ">
+                <div class="pagination justify-content-center">
+                    <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">اولین|</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+                    {% endif %}
+
+                        <span class="current">
+                            صفحه  {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}
+                        </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">بعدی</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}"> | آخرین</a>
+                    {% endif %}
+                    </span>
+                </div>
+            </div>
+
+            </section>
+            <!--end of Pagination-->
+      </section>
+      <!-- /.content -->
+
+{% endblock %}
