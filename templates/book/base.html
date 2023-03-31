@@ -104,13 +104,13 @@
                                     {% endif %}
                                     {% if not user.is_authenticated %}
                                     <li>
-                                        <a href="{% url 'Account:login' %}" title="ورود کاربر">
+                                        <a href="{% url 'login' %}" title="ورود کاربر">
                                             <i class="fa fa-sign-in"></i>
                                         </a>
                                     </li>
                                     {% else %}
                                     <li>
-                                        <a href="{% url 'Account:logout' %}" title="خروج کاربر">
+                                        <a href="{% url 'logout' %}" title="خروج کاربر">
                                             <i class='fa fa-power-off'></i>
                                         </a>
                                     </li>
