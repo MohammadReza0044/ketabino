@@ -40,8 +40,7 @@
                 <div class="product-details-desc">
                     <h3>{{book.name}}</h3>
                     <div class="price">
-                        <span class="new-price">{{book.price}}</span>
-                        <span class="old-price">{{book.price}}</span>
+                        <span class="new-price">{{book.price}} تومان</span>
                     </div>
                     <div class="product-review">
                         <p> نویسنده: {{book.author}}  </p>
@@ -53,36 +52,10 @@
                     </div>
                     <p>{{book.description|safe|truncatewords:40}}</p>
                     <div class="product-add-to-cart">
-                        <div class="input-counter">
-                            <span class="minus-btn">
-                                <i class="las la-minus"></i>
-                            </span>
-                            <input type="text" min="1" value="1">
-                            <span class="plus-btn">
-                                <i class="las la-plus"></i>
-                            </span>
-                        </div>
                         <a href="{% url 'Cart:add_to_cart' book.pk %}"><button type="submit" class="default-btn">
                             Add to cart
                             <span></span>
                         </button> </a>
-                    </div>
-
-                    <div class="buy-checkbox-btn">
-                        <div class="item">
-                            <input class="inp-cbx" id="cbx" type="checkbox">
-                            <label class="cbx" for="cbx">
-                                <span>
-                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                    </svg>
-                                </span>
-                                <span>I agree with the terms and conditions</span>
-                            </label>
-                        </div>
-                        <div class="item">
-                            <a href="#" class="btn btn-light">Buy it now!</a>
-                        </div>
                     </div>
                 </div>
             </div>

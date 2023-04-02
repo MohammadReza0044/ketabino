@@ -1,8 +1,7 @@
-from django.shortcuts import render , redirect , get_list_or_404
+from django.shortcuts import render , redirect 
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.db.models import Sum
 
 from book.models import Book
 from .models import CartItem
@@ -20,13 +19,34 @@ def add_to_cart(request,pk):
 	return redirect ('Book:book_detail' , slug = product.slug)
 
 
-class CartItemList(LoginRequiredMixin,ListView):
-	model = CartItem
-	context_object_name = 'cart'
-	template_name = 'cart/cart_preview.html'
+@login_required
+def cart_view(request):
+	user=request.user
+	cart = CartItem.objects.filter(user=user , is_pending = True)
+	cart_total = 0
 	
+	for p in cart:
+		cart_total += p.product.price
+	
+	context = {
+		'cart': cart,
+		'cart_total':cart_total
+	}
+	return render (request, 'cart/cart_preview.html',context)
 
-	def get_queryset(self):
-		queryset = super(CartItemList, self).get_queryset()
-		queryset = queryset.filter(user=self.request.user , is_pending = True )
-		return queryset
+
+
+@login_required
+def delete(request,pk):
+	user = request.user
+	product = CartItem.objects.filter(user=user , pk=pk)
+	product.delete()
+	return redirect ('Cart:cart')
+
+
+
+def cart_item_sum(request):
+	user = request.user
+	product = CartItem.objects.filter(user=user, is_pending = True)
+	print(product)
+	return render
