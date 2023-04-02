@@ -1,0 +1,39 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}  فروشگاه کتابینو | سبد خرید{% endblock %}
+{% block main %}  
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+            </div>
+          <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>نام کتاب</th>
+                            <th> قیمت کتاب </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart %}  
+                        <tr>
+                            <td>{{item.product.name}}</td>
+                            <td> {{item.product.price}}</td>
+                            <td><a href="#" class="btn btn-block btn-info"> <i class="fa fa-trash-o"></i> حذف</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+          <!-- /.box-body -->
+        </div>
+    </div>
+</section>
+
+{% endblock %}

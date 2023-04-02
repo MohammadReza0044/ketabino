@@ -363,7 +363,7 @@ jQuery(function ($) {
                 if (oldValue >= max) {
                     var newVal = oldValue;
                 } else {
-                    var newVal = oldValue + 2;
+                    var newVal = oldValue + 0;
                 }
                 spinner.find("input").val(newVal);
                 spinner.find("input").trigger("change");
@@ -373,7 +373,7 @@ jQuery(function ($) {
                 if (oldValue <= min) {
                     var newVal = oldValue;
                 } else {
-                    var newVal = oldValue - 2;
+                    var newVal = oldValue - 0;
                 }
                 spinner.find("input").val(newVal);
                 spinner.find("input").trigger("change");

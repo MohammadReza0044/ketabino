@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'book',
     'account',
     'dashboard',
+    'cart',
     'widget_tweaks',
     'crispy_forms',
     'crispy_bootstrap5',

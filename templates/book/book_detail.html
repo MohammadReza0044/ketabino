@@ -62,10 +62,10 @@
                                 <i class="las la-plus"></i>
                             </span>
                         </div>
-                        <button type="submit" class="default-btn">
+                        <a href="{% url 'Cart:add_to_cart' book.pk %}"><button type="submit" class="default-btn">
                             Add to cart
                             <span></span>
-                        </button>
+                        </button> </a>
                     </div>
 
                     <div class="buy-checkbox-btn">
