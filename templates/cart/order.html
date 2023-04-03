@@ -1,0 +1,46 @@
+{% extends 'book/base.html' %}
+{% load static %}
+
+
+{% block title %}  فروشگاه کتابینو | فاکتور خرید{% endblock %}
+{% block main %}  
+
+<br>
+<h1 style="text-align: center;">شماره فاکتور: {{order.invoice_number}} </h1>
+<hr>
+<table class="table table-striped" style="text-align: center; width: 50%; float: right;">
+    <thead>
+        <tr>
+            <th>نام کتاب</th>
+            <th> قیمت کتاب </th> 
+        </tr>
+    </thead>
+    <tbody>
+        {% for b in order.product.all %}
+        <tr>
+            <td>{{b.product.name}}</td>
+            <td> {{b.product.price}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<section>
+    <table class="table caption-top" style="text-align: center; width: 50%; float:left;">
+        <thead>
+            <tr>
+                <th> جمع کل فاکتور </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{order.total_payment}} تومان</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+</section>
+{% endblock %}

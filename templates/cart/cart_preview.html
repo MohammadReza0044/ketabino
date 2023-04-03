@@ -35,14 +35,11 @@
     <table class="table caption-top" style="text-align: center; width: 50%; float:left;">
         <thead>
             <tr>
-              
                 <th> جمع کل </th>
             </tr>
         </thead>
         <tbody>
-    
             <tr>
-           
                 <td>{{cart_total}} تومان</td>
             </tr>
 
@@ -50,7 +47,7 @@
     </table>
 
     <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-primary" type="button">تایید و پرداخت</button>
+        <a href="{% url 'Cart:cart_confirm' %}"><button class="btn btn-primary" type="button">تایید و پرداخت</button></a>
 
     </div>
 
