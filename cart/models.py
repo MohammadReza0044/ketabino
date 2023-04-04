@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from extensions.utils import jalali_converter
 from book.models import Book
 
 
@@ -41,5 +42,7 @@ class FinalOrder(models.Model):
 		db_table = 'Final Order'
 		ordering = ['-ordered_date']
 
+	def jpublish(self):
+		return jalali_converter(self.ordered_date)
 
 

@@ -6,8 +6,10 @@
 {% block main %}  
 
 <br>
-<h1 style="text-align: center;">شماره فاکتور: {{order.invoice_number}} </h1>
+<h1 style="text-align: center;">شماره فاکتور: {{order_detail.invoice_number}} </h1>
+<span style="margin-right:10px ;">تاریخ خرید:  {{order_detail.jpublish}} </span>
 <hr>
+
 <table class="table table-striped" style="text-align: center; width: 50%; float: right;">
     <thead>
         <tr>
@@ -16,10 +18,10 @@
         </tr>
     </thead>
     <tbody>
-        {% for b in order.product.all %}
+        {% for o in order_detail.product.all %}
         <tr>
-            <td>{{b.product.name}}</td>
-            <td> {{b.product.price}}</td>
+            <td>{{o.product.name}}</td>
+            <td> {{o.product.price}}</td>
         </tr>
         {% endfor %}
     </tbody>
@@ -35,7 +37,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{order.total_payment}} تومان</td>
+                <td>{{order_detail.total_payment}} تومان</td>
             </tr>
 
         </tbody>

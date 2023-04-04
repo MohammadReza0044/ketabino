@@ -1,5 +1,7 @@
-from django.shortcuts import render , redirect 
+from django.shortcuts import render , redirect, get_object_or_404
 from django.http import HttpResponse
+from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Sum
@@ -20,14 +22,28 @@ def add_to_cart(request,pk):
 	return redirect ('Book:book_detail' , slug = product.slug)
 
 
+# geting total amount of the products
+def get_total(user):
+	product = CartItem.objects.filter(user=user , is_pending=True)
+	total = 0
+	for p in product:
+		total += p.product.price
+	return total
+
+# set is_pending_false for the cart products
+def is_pending_false(user):
+	product = CartItem.objects.filter(user=user , is_pending=True)
+	for i in product:
+		i.is_pending = False
+		i.save()
+	return product
+
+
 @login_required
 def cart_view(request):
 	user=request.user
 	cart = CartItem.objects.filter(user=user , is_pending = True)
-	cart_total = 0
-	for p in cart:
-		cart_total += p.product.price
-	
+	cart_total = get_total(user)
 	context = {
 		'cart': cart,
 		'cart_total':cart_total
@@ -42,29 +58,40 @@ def delete(request,pk):
 	product.delete()
 	return redirect ('Cart:cart')
 
+
 @login_required
 def final_order(request):
 	user = request.user
 	product = CartItem.objects.filter(user=user , is_pending=True)
-	total = 0
-	for p in product:
-		total += p.product.price
 
 	new_product = FinalOrder.objects.create(
 		invoice_number = invoice_generator(),
 		user = user,
-		total_payment = total,
+		total_payment = get_total(user),
 		payment_status = True
 	)
 	new_product.product.set(product)
 
-	for i in product:
-		i.is_pending = False
-
-	context = {
-		'order':new_product
-	}
-	messages.add_message(request, messages.SUCCESS, 'فاکتور شما با موفقیت ثبت شد. جهت مشاهده ی جزییات خرید، لطفا به پروفایل کاربری، قسمت گزارش خرید مراجعه فرمایید.')
-	return  redirect ('Cart:cart')
+	product = is_pending_false(user)
+	return  redirect ('Cart:order_detail' , new_product.invoice_number )
 
 
+
+# order list and order detail view for profile
+class OrderList(LoginRequiredMixin, ListView):
+	context_object_name = 'order'
+	template_name = 'cart/order_list.html'
+	
+	def get_queryset(self):
+		user = self.request.user
+		return FinalOrder.objects.filter (user=user)
+	
+
+class OrderDetail(LoginRequiredMixin, DetailView):
+	template_name = 'cart/order_detail.html'
+	context_object_name = 'order_detail'
+
+	def get_object(self):
+		user = self.request.user
+		invoice_number = self.kwargs.get('invoice_number')
+		return get_object_or_404(FinalOrder,user=user , invoice_number=invoice_number )

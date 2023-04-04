@@ -1,0 +1,36 @@
+{% extends 'book/base.html' %}
+{% load static %}
+
+
+{% block title %}  فروشگاه کتابینو | گزارش خرید{% endblock %}
+{% block main %}  
+
+<hr>
+{% if order %}
+<table class="table table-striped" style="text-align: center; width: 50%; float: right;">
+    <thead>
+        <tr>
+            <th>شماره فاکتور </th>
+            <th> تاریخ خرید  </th> 
+            <th> مبلغ کل   </th> 
+            <th> نمایش </th> 
+        </tr>
+    </thead>
+    <tbody>
+        {% for o in order %}
+        <tr>
+            <td>{{o.invoice_number}}</td>
+            <td> {{o.jpublish}}</td>
+            <td> {{o.total_payment}} تومان</td>
+            <td> <a href="{% url 'Cart:order_detail' o.invoice_number %}"><i class="fa fa-eye"></i></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+
+<p style="text-align: center;">شما تا کنون خریدی نداشته اید</p>
+
+{% endif %}
+
+{% endblock %}

@@ -8,6 +8,7 @@
 <br>
 <h1 style="text-align: center;">سبد خرید</h1>
 <hr>
+{% if cart %}
 <table class="table table-striped" style="text-align: center; width: 50%; float: right;">
     <thead>
         <tr>
@@ -25,11 +26,10 @@
             <td> {{item.product.price}}</td>
             <td ><a href="{% url 'Cart:delete' item.pk %}" class="btn btn-danger"> <i class="fa fa-trash-o"></i> حذف</a></td>
         </tr>
-        {% empty %}
-        <p style="text-align: center;">سبد خرید شما خالی میباشد</p>
         {% endfor %}
     </tbody>
 </table>
+
 
 <section>
     <table class="table caption-top" style="text-align: center; width: 50%; float:left;">
@@ -47,10 +47,13 @@
     </table>
 
     <div class="d-grid gap-2 col-6 mx-auto">
-        <a href="{% url 'Cart:cart_confirm' %}"><button class="btn btn-primary" type="button">تایید و پرداخت</button></a>
-
+        <a href="{% url 'Cart:cart_confirm' %}" class="btn btn-primary"> تایید و پرداخت </a>
     </div>
-
 </section>
+{% else%}
+
+<p style="text-align: center;">سبد خرید شما خالی میباشد</p>
+
+{% endif %}
 
 {% endblock %}
