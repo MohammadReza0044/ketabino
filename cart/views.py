@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Sum
 
+from .mixins import UserAccessMixin
 from .extra import invoice_generator
 from book.models import Book
 from .models import CartItem, FinalOrder
@@ -87,7 +88,7 @@ class OrderList(LoginRequiredMixin, ListView):
 		return FinalOrder.objects.filter (user=user)
 	
 
-class OrderDetail(LoginRequiredMixin, DetailView):
+class OrderDetail(LoginRequiredMixin,UserAccessMixin, DetailView):
 	template_name = 'cart/order_detail.html'
 	context_object_name = 'order_detail'
 
