@@ -1,0 +1,24 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %} وضعیت فاکتور : {{object.invoice_number}} {% endblock %}
+{% block main %}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-body">
+            <form method="post">{% csrf_token %}
+                <label>وضعیت فاکتور را مشخص کنید</label> &nbsp&nbsp {{ form.status}}
+                <hr>
+                <label> آیا مبلغ فاکتور، پرداخت شده است؟ </label> &nbsp&nbsp {{ form.payment_status}}
+                <hr>
+                <input type="submit"  value="تایید">
+            </form>
+        </div>
+ 
+    </div>
+    <!-- /.modal-content -->
+  </div>
+
+{% endblock %}

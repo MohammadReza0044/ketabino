@@ -5,6 +5,9 @@ from dashboard import views
 app_name = 'Dashboard'
 urlpatterns = [
     path('', views.DashboardIndex.as_view() , name='dashboard'),
+    path('orders', views.OrderDashboard.as_view() , name='order_list'),
+    path('order/<int:pk>', views.OrderDetail.as_view() , name='order_detail'),
+    path('order-update/<int:pk>', views.OrderUpdate.as_view() , name='order_update'),
     path('books', views.BookDashboard.as_view() , name='book_list'),
     path('book-create', views.BookCreate.as_view() , name='book_create'),
     path('book-update/<int:pk>', views.BookUpdate.as_view() , name='book_update'),

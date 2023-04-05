@@ -1,0 +1,80 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %} لیست سفارشات {% endblock %}
+{% block main %}
+
+
+<section class="content container-fluid">
+
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">کل سفارشات</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="table-responsive">
+                <table class="table no-margin">
+                    <thead>
+                        <tr>
+                            <th>شماره فاکتور</th>
+                            <th>نام خریدار</th>
+                            <th>تاریخ خرید</th>
+                            <th>مبلغ کل</th>
+                            <th> وضعیت</th>
+                            <th> نمایش</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in object_list %}  
+                        <tr>
+                            <td>{{order.invoice_number}}</td>
+                            <td>{{order.user.get_full_name}}</td>
+                            <td>{{order.jpublish}}</td>
+                            <td>{{order.total_payment}} نومان</td>
+                            {% if order.status == 'processing' %} <td><span class="label label-info">در حال بررسی</span></td> {% elif order.status == 'sending' %}
+                            <td><span class="label label-warning"> در حال ارسال</span></td> {% elif order.status == 'ok' %}
+                            <td><span class="label label-success"> ارسال شد</span></td> {% else %}
+                            <td><span class="label label-danger"> برگشت از خرید </span></td> {% endif %}
+                            <td> <a href="{% url 'Dashboard:order_detail' order.pk %}"><i class="fa fa-eye"></i></span></td> </a>
+                            <td>
+                            <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+      <!--Pagination-->
+    <section class="articles-pagination">
+  
+        <div class="container p-4 ">
+            <div class="pagination justify-content-center">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                    <a href="?page=1">اولین|</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+                    {% endif %}
+
+                    <span class="current">
+                        صفحه  {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">بعدی</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}"> | آخرین</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </section>
+    <!--end of Pagination-->
+</section>
+
+
+{% endblock %}

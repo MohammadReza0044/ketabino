@@ -10,12 +10,40 @@ from django.contrib.auth.models import User
 from .forms import UserForm , UserUpdateForm, UserProfileForm
 from .mixins import DashboardLoginMixin , SuperuserAccessMixin
 from book.models import Book , Author, Publisher, Translator, BookComment, AuthorComment, Contact
+from cart.models import FinalOrder
 
 
 
 class DashboardIndex(LoginRequiredMixin,DashboardLoginMixin, ListView):
-    queryset = Book.objects.actived()
+    queryset = FinalOrder.objects.all()[:5]
     template_name = 'dashboard/index.html'
+
+
+# order classes
+class OrderDashboard(LoginRequiredMixin,DashboardLoginMixin, ListView):
+    queryset = FinalOrder.objects.all()
+    template_name = 'dashboard/order_list.html'
+    paginate_by = 10
+
+
+class OrderDetail(LoginRequiredMixin,DashboardLoginMixin, DetailView):
+    template_name = 'dashboard/order_detail.html'
+
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404 (FinalOrder , pk=pk)
+    
+
+class OrderUpdate(LoginRequiredMixin,DashboardLoginMixin, UpdateView):
+    model = FinalOrder
+    template_name = 'dashboard/order_update.html'
+    fields = ('status','payment_status')
+
+    def get_success_url(self):
+       pk = self.kwargs["pk"]
+       return reverse_lazy('Dashboard:order_detail', kwargs={"pk": pk})
+    
+
 
 # book classes
 class BookDashboard(LoginRequiredMixin,DashboardLoginMixin, ListView):
@@ -253,3 +281,7 @@ class ContactUsDelete(LoginRequiredMixin,DashboardLoginMixin,SuperuserAccessMixi
     template_name = 'dashboard/delete_confirm.html'
     success_url = reverse_lazy ('Dashboard:contact_us_list')
     success_message = "تماس با ما با موفقیت حذف شد."
+
+
+
+
