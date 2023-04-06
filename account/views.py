@@ -35,5 +35,5 @@ class UserSingup(SuccessMessageMixin,CreateView):
     model = User
     form_class = UserForm
     template_name = 'registration/singup_form.html'
-    success_url = reverse_lazy ('Account:login')
+    success_url = reverse_lazy ('login')
     success_message = "حساب کاربری شما با موفقیت ایجاد شد. لطفا وارد حساب کاربری خود شوید."
