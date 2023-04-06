@@ -4,6 +4,8 @@ A website for a bookstore with a special admin-dashboard panel with Django
 * normal users can login and buy the books they want to.
 * admin panel has different access mixins for superuser and staff.
 <hr>
+you can kindly check out the website: https://elyas44.pythonanywhere.com/
+<hr>
 
 ![index page](assets/demoImages/index.png)
 ![books](assets/demoImages/books.png)
